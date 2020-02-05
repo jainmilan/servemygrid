@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Milan Jain">
+    <title>Find My Settings</title>
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/css/page.css">
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/d3/d3.min.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap/bootstrap.min.js"></script>
+</head>
+<body onresize="drawAppliancePlot()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand ml-4" href="#">Find My Settings</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto mr-5 pr-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">PTACs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lighting.html">Lighting</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="appliances.html">Appliances <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid mx-auto">       
+        <div class="row" id="input">
+            <div class="col-md-6">
+                <div class="row m-2">
+                    <div class="col-md-6 mt-4 mb-2">
+                        <div class="form-group row">
+                            <label for="selectBuilding" class="col-sm-5 col-form-label">Building</label>
+                            <div class="col-sm-7">
+                                <select id="building_name" class="form-control">
+                                    <option value="A" selected>Building A</option>
+                                    <option value="B">Building B</option>
+                                    <option value="C">Building C</option>
+                                    <option value="D">Building D</option>
+                                    <option value="E">Building E</option>
+                                    <option value="F">Building F</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="apartmentType" class="col-sm-5 col-form-label">Apartment Type</label>
+                            <div class="col-sm-7">
+                                <select id="apt_type" class="form-control" onchange="reloadLayout()">
+                                    <option value="1" selected>1 Bedroom</option>
+                                    <option value="2">2 Bedrooms</option>
+                                    <option value="3">3 Bedrooms</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="month" class="col-sm-5 col-form-label">Month</label>
+                            <div class="col-sm-7">
+                                <select id="month" class="form-control">
+                                    <option value=1 selected>January</option>
+                                    <option value=2>February</option>
+                                    <option value=3>March</option>
+                                    <option value=4>April</option>
+                                    <option value=5>May</option>
+                                    <option value=6>June</option>
+                                    <option value=7>July</option>
+                                    <option value=8>August</option>
+                                    <option value=9>September</option>
+                                    <option value=10>October</option>
+                                    <option value=11>November</option>
+                                    <option value=12>December</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary float-right" onclick="drawAppliancePlot()">Find My Setting</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-3 mb-3 text-center">
+                        <img src="static/images/floorPlans/1BR.jpg" id="aptLayout" class="img-thumbnail" alt="Responsive image">    
+                    </div>
+                </div>
+                <hr class="style2">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3 class="form-group">Meta Information:</h3>
+                        <ul type="*">
+                            <li><em>Data Source:</em> <a href="https://www.coned.com/en/save-money/energy-saving-programs/time-of-use" target="_blank">ConEdison</a></li>
+                            <li><em>Location:</em> New York City</li>
+                            <li><em>Peak Hours:</em> 8:00 AM - Midnight </li>
+                            <li><em>Non-Peak Hours:</em> Midnight - 8:00 AM </li>
+                        </ul>  
+                    </div>
+                    <div class="col-md-8">
+                            <table class="table table-sm table-striped">
+                                <col>
+                                <colgroup span="2"></colgroup>
+                                <colgroup span="2"></colgroup>
+                                <tr>
+                                    <td rowspan="2"></td>
+                                    <th colspan="2" scope="colgroup">Standard</th>
+                                    <th colspan="2" scope="colgroup">Time of Day</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><250 kWh</th>
+                                    <th scope="col">>=250 kWh</th>
+                                    <th scope="col">Peak Hours</th>
+                                    <th scope="col">Non-Peak</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jun 1 - Sep 30</th>
+                                    <td>10.817</td>
+                                    <td>12.434</td>
+                                    <td>23.07</td>
+                                    <td>1.63</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">In Other Months</th>
+                                    <td>10.817</td>
+                                    <td>10.817</td>
+                                    <td>8.54</td>
+                                    <td>1.63</td>
+                                </tr>
+                            </table>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12" id="dataviz"></div>
+            </div>
+       </div>
+    </div>
+    <script type="text/javascript" src="static/js/plot.js"></script>
+</body>
+</html>
