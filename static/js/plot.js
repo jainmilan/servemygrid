@@ -1,3 +1,60 @@
+jQuery(document).ready(function(){
+    var currentDiv = "buildingType";
+    
+    var parentDict = {
+        residentialType: "buildingType",
+        commercialType: "buildingType",
+        officeType: "commercialType",
+        healthcareType: "commercialType",
+        schoolType: "commercialType",
+        hotelType: "commercialType",
+        restaurantType: "commercialType",
+        shopType: "commercialType"
+    };
+    
+    jQuery('input[type=radio][name=buildingType]').on('change', function(){
+        if(this.value == 'residential') {
+            currentDiv = "residentialType";
+        } else {
+            currentDiv = "commercialType";
+        }
+        jQuery('.buildingType').hide();
+        jQuery('.backButton').show();
+        jQuery('.' + currentDiv).show();
+    });
+    jQuery('input[type=radio][name=commercialType]').on('change', function(){
+        if(this.value == 'office') {
+            currentDiv = "officeType";
+        } else if (this.value == 'healthcare') {
+            currentDiv = "healthcareType";
+        } else if (this.value == 'school') {
+            currentDiv = "schoolType";
+        } else if (this.value == 'hotel') {
+            currentDiv = "hotelType";
+        } else if (this.value == 'restaurant') {
+            currentDiv = "restaurantType";
+        } else if (this.value == 'shop') {
+            currentDiv = "shopType";
+        } else {
+            currentDiv = "commercialType";
+        }
+        jQuery('.commercialType').hide();
+        jQuery('.' + currentDiv).show();
+    });
+    jQuery('#backButton').on('click', function(){
+        jQuery('.' + currentDiv).hide();
+        var unselect = currentDiv.split("Type")[0];
+        
+        currentDiv = parentDict[currentDiv];
+        
+        if (currentDiv == "buildingType") {
+            jQuery('.backButton').hide();
+        }
+        jQuery('.' + currentDiv).show();
+        jQuery('#' + unselect).prop("checked", false); 
+    });
+});
+
 function preProcessData(data, selectedMonth, excludeCols) {
     var filteredData = data.filter(function(d) {
         return d.Month == selectedMonth;

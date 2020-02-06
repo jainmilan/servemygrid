@@ -6,18 +6,20 @@
     <meta name="description" content="">
     <meta name="author" content="Milan Jain">
     <title>Find My Settings</title>
-    <link rel="stylesheet" type="text/css" href="static/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="static/css/page.css">
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/d3/d3.min.js"></script>
-    <script type="text/javascript" src="static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/ec5159a5c8.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body onresize="drawPTACPlot()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-4" href="#">Find My Settings</a>
+        <a class="navbar-brand ml-4" href="index.html"><span class="mb-0 h1">Serve <font color="#32CD32">my</font>Grid</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!--
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto mr-5 pr-5">
                 <li class="nav-item active">
@@ -31,106 +33,513 @@
                 </li>
             </ul>
         </div>
+        -->
     </nav>
     <div class="container-fluid mx-auto">       
         <div class="row" id="input">
             <div class="col-md-6">
-                <div class="row m-2">
+                <div class="row mx-2">
                     <div class="col-md-6 mt-4 mb-2">
-                        <div class="form-group row">
-                            <label for="selectBuilding" class="col-sm-5 col-form-label">Building</label>
-                            <div class="col-sm-7">
-                                <select id="building_name" class="form-control">
-                                    <option value="A" selected>Building A</option>
-                                    <option value="B">Building B</option>
-                                    <option value="C">Building C</option>
-                                    <option value="D">Building D</option>
-                                    <option value="E">Building E</option>
-                                    <option value="F">Building F</option>
-                                </select>
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">Building Selection Panel</legend>
+                            <div class="backButton col-md-12 mx-auto px-auto justify-content-center text-center hidden">
+                                <button type="button" id="backButton" class="btn btn-default back"></button>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="apartmentType" class="col-sm-5 col-form-label">Apartment Type</label>
-                            <div class="col-sm-7">
-                                <select id="apt_type" class="form-control" onchange="reloadLayout()">
-                                    <option value="1" selected>1 Bedroom</option>
-                                    <option value="2">2 Bedrooms</option>
-                                    <option value="3">3 Bedrooms</option>
-                                </select>
+                            <div class="col-md-12 form-group selectionPanel buildingType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="buildingType" id="commercial" value="commercial">
+                                        <label class="form-check-label" for="commercial">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/skyscraper.png" alt="">
+                                                <figcaption>Commercial</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="apartmentOrientation" class="col-sm-5 col-form-label">Room Facing</label>
-                            <div class="col-sm-7">
-                                <select id="room_orientation" class="form-control">
-                                    <option value="N">North</option>
-                                    <option value="E">East</option>
-                                    <option value="W">West</option>
-                                    <option value="S">South</option>
-                                    <option value="NE" selected>North-East</option>
-                                    <option value="NW">North-West</option>
-                                    <option value="SE">South-East</option>
-                                    <option value="SW">South-West</option>
-                                </select>
+                            <div class="col-md-12 form-group hidden selectionPanel residentialType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="residentialType" id="mra" value="mra">
+                                        <label class="form-check-label" for="mra">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/midrise.png" alt="">
+                                                <figcaption>Mid-Rise Apartments</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="residentialType" id="hra" value="hra">
+                                        <label class="form-check-label" for="hra">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/highrise.png" alt="">
+                                                <figcaption>High-Rise Apartments</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="occupancyType" class="col-sm-5 col-form-label">Resident Type</label>
-                            <div class="col-sm-7">
-                                <select id="occType" class="form-control">
-                                    <option value="FwoK" selected>Family w/o kids</option>
-                                    <option value="FwK">Family w/ kids</option>
-                                    <option value="BC">Unmarried</option>
-                                    <option value="SC">Senior Citizen w/o kids</option>
-                                </select>
+                            <div class="col-md-12 form-group hidden selectionPanel commercialType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="office" value="office">
+                                        <label class="form-check-label" for="office">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/work.png" alt="">
+                                                <figcaption>Office Building</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="healthcare" value="healthcare">
+                                        <label class="form-check-label" for="healthcare">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Healtcare Center</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-3 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="school" value="school">
+                                        <label class="form-check-label" for="school">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/school.png" alt="">
+                                                <figcaption>School</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="hotel" value="hotel">
+                                        <label class="form-check-label" for="hotel">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/hotel.png" alt="">
+                                                <figcaption>Hotel</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="restaurant" value="restaurant">
+                                        <label class="form-check-label" for="restaurant">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Restaurant</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="shop" value="shop">
+                                        <label class="form-check-label" for="shop">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Shopping Center</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="commercialType" id="warehouse" value="warehouse">
+                                        <label class="form-check-label" for="warehouse">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Warehouse</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="month" class="col-sm-5 col-form-label">Month</label>
-                            <div class="col-sm-7">
-                                <select id="month" class="form-control">
-                                    <option value=1>January</option>
-                                    <option value=2>February</option>
-                                    <option value=3>March</option>
-                                    <option value=4>April</option>
-                                    <option value=5>May</option>
-                                    <option value=6>June</option>
-                                    <option value=7>July</option>
-                                    <option value=8 selected>August</option>
-                                    <option value=9>September</option>
-                                    <option value=10>October</option>
-                                    <option value=11>November</option>
-                                    <option value=12>December</option>
-                                </select>
+                            <div class="col-md-12 form-group hidden selectionPanel officeType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="officeType" id="smallOff" value="smallOff">
+                                        <label class="form-check-label" for="smallOff">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Small Size Office</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="officeType" id="medOff" value="medOff">
+                                        <label class="form-check-label" for="medOff">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Medium Size Office</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-12 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="officeType" id="largeOff" value="largeOff">
+                                        <label class="form-check-label" for="largeOff">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Large Size Office</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary float-right" onclick="drawPTACPlot()">Find My Setting</button>
+                            <div class="col-md-12 form-group hidden selectionPanel healthcareType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="healthcareType" id="outpatient" value="outpatient">
+                                        <label class="form-check-label" for="outpatient">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Outpatient Healthcare</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="healthcareType" id="hospital" value="hospital">
+                                        <label class="form-check-label" for="hospital">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Hospital</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-md-12 form-group hidden selectionPanel schoolType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="schoolType" id="primary" value="primary">
+                                        <label class="form-check-label" for="primary">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Primary School</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="schoolType" id="secondary" value="secondary">
+                                        <label class="form-check-label" for="secondary">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Secondary School</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group hidden selectionPanel hotelType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
+                                        <label class="form-check-label" for="smallHotel">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Small Hotel</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="hotelType" id="largeHotel" value="largeHotel">
+                                        <label class="form-check-label" for="largeHotel">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Large Hotel</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group hidden selectionPanel restaurantType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="restaurantType" id="quickService" value="quickService">
+                                        <label class="form-check-label" for="quickService">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Quick Service Restaurant</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="restaurantType" id="fullService" value="fullService">
+                                        <label class="form-check-label" for="fullService">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Full Service Restaurant</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group hidden selectionPanel shopType mt-3">
+                                <div class="row pt-2 mt-2">
+                                    <div class="form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="shopType" id="retail" value="retail">
+                                        <label class="form-check-label" for="retail">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Stand Alone Retail</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline text-center mx-auto px-0 justify-content-center">
+                                        <input class="form-check-input" type="radio" name="shopType" id="mall" value="mall">
+                                        <label class="form-check-label" for="mall">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/health.png" alt="">
+                                                <figcaption>Strip Mall</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
-                    <div class="col-md-6 mt-3 mb-3 text-center">
-                        <img src="static/images/floorPlans/1BR.jpg" id="aptLayout" class="img-thumbnail" alt="Responsive image">    
-                    </div>
-                </div>
-                <hr class="style2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="form-group">Meta Information</h3>
-                        <ol type="1">
-                            <li><em>Data Source:</em> <a href="https://maps.nrel.gov/nsrdb-viewer/?aL=UdPEX9%255Bv%255D%3Dt%26f69KzE%255Bv%255D%3Dt%26f69KzE%255Bd%255D%3D1&bL=clight&cE=0&lR=0&mC=4.740675384778373%2C22.8515625&zL=2" target="_blank">NREL Solar Radiation Database (1998-2018)</a></li>
-                            <li><em>Location:</em> NYC Central Park [Lat: 40.77, Lng: -73.94]</li>
-                            <li>In this plot, we show hourly median values of outside air temperature, dew-point temperature, solar radiation, and recommended set point temperature. We fetch these values from NYC Central Park weather data collected from NREL Solar Radiation database from 1998 until 2018. We compute the recommended set-point temperature based on ASHRAE guidelines. As of now, we don't consider hourly variation in temperature, humidity, and solar radiation values to suggest the set-point temperature.</li>
-                        </ol>  
+                    <div class="col-md-6 mt-4 mb-2 form-group selectionPanel text-center">
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border">Appliance Selection Panel</legend>
+                            <div class="row pt-2 mt-2">
+                                <div class="col-md-5 form-check form-check-inline ml-2 mr-3 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row ml-0 px-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline ml-3 mr-0 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row px-0 ml-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-check form-check-inline ml-2 mr-3 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row ml-0 px-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline ml-3 mr-0 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row px-0 ml-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-check form-check-inline ml-2 mr-3 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row ml-0 px-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline ml-3 mr-0 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row px-0 ml-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-check form-check-inline ml-2 mr-3 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row ml-0 px-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline ml-3 mr-0 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row px-0 ml-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-check form-check-inline ml-2 mr-3 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row ml-0 px-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline ml-3 mr-0 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row px-0 ml-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 form-check form-check-inline ml-2 mr-3 px-0">
+                                    <div class="col-md-8 mx-0 px-0">
+                                        <input class="form-check-input" type="checkbox" name="buildingType" id="residential" value="residential">
+                                        <label class="form-check-label" for="residential">
+                                            <figure>
+                                                <img class="label-image" src="static/images/icons/house.png" alt="">
+                                                <figcaption>Residential</figcaption>
+                                            </figure>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mx-0 px-0">
+                                        <div class="row ml-0 px-0 mb-2">
+                                            <i class="fas fa-link" style="font-size:20px;"></i>
+                                        </div>
+                                        <div class="row ml-0 px-0 mb-4">
+                                            <i class="fas fa-upload" style="font-size:24px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>    
                     </div>
                 </div>   
             </div>
             <div class="col-md-6">
-                <div class="col-md-12" id="dataviz"></div>
+                
             </div>
         </div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a>, <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a>, <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <a target="_blank" href="https://icons8.com/icons/set/chevron-up">Chevron Up icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
     </div>
     <script type="text/javascript" src="static/js/plot.js"></script>
 </body>
