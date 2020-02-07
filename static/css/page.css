@@ -27,20 +27,20 @@ legend.scheduler-border {
     border-bottom:none;
 }
 
-.selectionPanel  input{
+.selectionPanel input{
     margin:0;padding:0;
     -webkit-appearance:none;
        -moz-appearance:none;
             appearance:none;
 }
 
-.back{background-image:url('../images/icons/icons8-chevron-up-50.png');}
+.back{background-image:url('../images/icons/up-arrow.png');}
 .back{
     cursor:pointer;
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:auto;height:2vh;
+    width:auto;height:4vh;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -59,7 +59,7 @@ legend.scheduler-border {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:auto;height:70px;
+    width:70%;height:auto;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -73,12 +73,25 @@ legend.scheduler-border {
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
 
-#input *{
-    font-size: 13px;
+.icon-image{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:35%;height:auto;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
 }
-#facts *{
-    font-size: 13px;
+.icon-image:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
+
 .axis path,
 .axis line {
     fill: none;
