@@ -54,8 +54,8 @@ jQuery(document).ready(function(){
             jQuery('.backButton').hide();
         }
         jQuery('.' + currentDiv).show();
-        jQuery('#' + unselect).prop("checked", false);
         jQuery('.applianceType').hide();
+        jQuery('#' + unselect).prop("checked", false);
     });
     
     jQuery('input[type=radio][name=residentialType]').on('change', function(){

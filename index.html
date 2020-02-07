@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Milan Jain">
-    <title>Find My Settings</title>
+    <title>Serve myGrid</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="static/css/page.css">
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/ec5159a5c8.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
-<body onresize="drawPTACPlot()">
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand ml-4" href="index.html"><span class="mb-0 h1">Serve <font color="#32CD32">my</font>Grid</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,8 +36,8 @@
         -->
     </nav>
     <div class="container-fluid mx-auto">       
-        <div class="row" id="input">
-            <div class="col-md-8">
+        <div class="row mainbox" id="input">
+            <div class="col-md-7">
                 <div class="row mx-2">
                     <div class="col-md-6 mt-4 mb-2">
                         <fieldset class="scheduler-border">
@@ -70,7 +70,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel residentialType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="residentialType" id="mra" value="mra">
+                                        <input class="form-check-input" type="radio" name="residentialType" id="mra" value="mra">
                                         <label class="form-check-label" for="mra">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/midrise.png" alt="">
@@ -79,7 +79,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="residentialType" id="hra" value="hra">
+                                        <input class="form-check-input" type="radio" name="residentialType" id="hra" value="hra">
                                         <label class="form-check-label" for="hra">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/highrise.png" alt="">
@@ -109,8 +109,6 @@
                                             </figure>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
                                         <input class="form-check-input" type="radio" name="commercialType" id="school" value="school">
                                         <label class="form-check-label" for="school">
@@ -129,8 +127,6 @@
                                             </figure>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
                                         <input class="form-check-input" type="radio" name="commercialType" id="restaurant" value="restaurant">
                                         <label class="form-check-label" for="restaurant">
@@ -149,8 +145,6 @@
                                             </figure>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
                                         <input class="form-check-input" type="radio" name="commercialType" id="warehouse" value="warehouse">
                                         <label class="form-check-label" for="warehouse">
@@ -165,7 +159,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel officeType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="officeType" id="smallOff" value="smallOff">
+                                        <input class="form-check-input" type="radio" name="officeType" id="smallOff" value="smallOff">
                                         <label class="form-check-label" for="smallOff">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/office.png" alt="">
@@ -174,7 +168,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="officeType" id="medOff" value="medOff">
+                                        <input class="form-check-input" type="radio" name="officeType" id="medOff" value="medOff">
                                         <label class="form-check-label" for="medOff">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/home-building.png" alt="">
@@ -182,10 +176,8 @@
                                             </figure>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="officeType" id="largeOff" value="largeOff">
+                                        <input class="form-check-input" type="radio" name="officeType" id="largeOff" value="largeOff">
                                         <label class="form-check-label" for="largeOff">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/skyscrapper.png" alt="">
@@ -198,7 +190,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel healthcareType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="healthcareType" id="outpatient" value="outpatient">
+                                        <input class="form-check-input" type="radio" name="healthcareType" id="outpatient" value="outpatient">
                                         <label class="form-check-label" for="outpatient">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/cross.png" alt="">
@@ -207,7 +199,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="healthcareType" id="hospital" value="hospital">
+                                        <input class="form-check-input" type="radio" name="healthcareType" id="hospital" value="hospital">
                                         <label class="form-check-label" for="hospital">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/hospital.png" alt="">
@@ -220,7 +212,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel schoolType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="schoolType" id="primary" value="primary">
+                                        <input class="form-check-input" type="radio" name="schoolType" id="primary" value="primary">
                                         <label class="form-check-label" for="primary">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/primary.png" alt="">
@@ -229,7 +221,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="schoolType" id="secondary" value="secondary">
+                                        <input class="form-check-input" type="radio" name="schoolType" id="secondary" value="secondary">
                                         <label class="form-check-label" for="secondary">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/secondary.png" alt="">
@@ -242,7 +234,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel hotelType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
+                                        <input class="form-check-input" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
                                         <label class="form-check-label" for="smallHotel">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/small-hotel.png" alt="">
@@ -251,7 +243,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="hotelType" id="largeHotel" value="largeHotel">
+                                        <input class="form-check-input" type="radio" name="hotelType" id="largeHotel" value="largeHotel">
                                         <label class="form-check-label" for="largeHotel">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/resort.png" alt="">
@@ -264,7 +256,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel restaurantType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="restaurantType" id="quickService" value="quickService">
+                                        <input class="form-check-input" type="radio" name="restaurantType" id="quickService" value="quickService">
                                         <label class="form-check-label" for="quickService">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/food-and-restaurant.png" alt="">
@@ -273,7 +265,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="restaurantType" id="fullService" value="fullService">
+                                        <input class="form-check-input" type="radio" name="restaurantType" id="fullService" value="fullService">
                                         <label class="form-check-label" for="fullService">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/urban.png" alt="">
@@ -286,7 +278,7 @@
                             <div class="col-md-12 form-group hidden selectionPanel shopType mt-3">
                                 <div class="row pt-2 mt-2">
                                     <div class="form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="shopType" id="retail" value="retail">
+                                        <input class="form-check-input" type="radio" name="shopType" id="retail" value="retail">
                                         <label class="form-check-label" for="retail">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/retail.png" alt="">
@@ -295,7 +287,7 @@
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input leaf" type="radio" name="shopType" id="mall" value="mall">
+                                        <input class="form-check-input" type="radio" name="shopType" id="mall" value="mall">
                                         <label class="form-check-label" for="mall">
                                             <figure>
                                                 <img class="label-image" src="static/images/icons/mall.png" alt="">
@@ -307,11 +299,11 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div class="col-md-6 mt-4 mb-2 form-group hidden selectionPanel applianceType px-0">
+                    <div class="col-md-6 form-group hidden selectionPanel applianceType mt-4 mb-0 px-0">
                         <fieldset class="scheduler-border">
                             <legend class="scheduler-border">Appliance Selection Panel</legend>
-                            <div class="col-md-12 form-group mt-3">
-                                <div class="row pt-2 mt-2">
+                            <div class="col-md-12 form-group mx-0 px-0">
+                                <div class="row">
                                     <div class="col-md-6 form-check form-check-inline mx-0 px-0">
                                         <div class="col-md-8 mx-0 px-0">
                                             <input class="form-check-input" type="checkbox" name="applianceType" id="hvac" value="hvac">
@@ -326,7 +318,7 @@
                                             <div class="row ml-0 px-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
@@ -345,15 +337,11 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group mt-3">
-                                <div class="row pt-2 mt-2">
                                     <div class="col-md-6 form-check form-check-inline mx-0 px-0">
                                         <div class="col-md-8 mx-0 px-0">
                                             <input class="form-check-input" type="checkbox" name="applianceType" id="desktops" value="desktops">
@@ -368,7 +356,7 @@
                                             <div class="row ml-0 px-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
@@ -387,15 +375,11 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group mt-3">
-                                <div class="row pt-2 mt-2">
                                     <div class="col-md-6 form-check form-check-inline mx-0 px-0">
                                         <div class="col-md-8 mx-0 px-0">
                                             <input class="form-check-input" type="checkbox" name="applianceType" id="monitors" value="monitors">
@@ -410,7 +394,7 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
@@ -429,15 +413,11 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group mt-3">
-                                <div class="row pt-2 mt-2">
                                     <div class="col-md-6 form-check form-check-inline mx-0 px-0">
                                         <div class="col-md-8 mx-0 px-0">
                                             <input class="form-check-input" type="checkbox" name="applianceType" id="kitchenVent" value="kitchenVent">
@@ -452,7 +432,7 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
@@ -471,15 +451,11 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group mt-3">
-                                <div class="row pt-2 mt-2">
                                     <div class="col-md-6 form-check form-check-inline mx-0 px-0">
                                         <div class="col-md-8 mx-0 px-0">
                                             <input class="form-check-input" type="checkbox" name="applianceType" id="securitySystem" value="securitySystem">
@@ -494,7 +470,7 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
@@ -513,15 +489,11 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group mt-3">
-                                <div class="row pt-2 mt-2">
                                     <div class="col-md-6 form-check form-check-inline mx-0 px-0">
                                         <div class="col-md-8 mx-0 px-0">
                                             <input class="form-check-input" type="checkbox" name="applianceType" id="labEquipment" value="labEquipment">
@@ -536,7 +508,7 @@
                                             <div class="row px-0 ml-0 mb-2">
                                                 <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                             </div>
-                                            <div class="row ml-0 px-0 mb-4">
+                                            <div class="row ml-0 px-0 mb-0">
                                                 <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                             </div>
                                         </div>
@@ -551,20 +523,22 @@
                 
             </div>
         </div>
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a>, 
-            <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a>, 
-            <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>, 
-            <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a>, 
-            <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a>, 
-            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, 
-            <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a>,
-            <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a>, 
-            <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a>,
-            <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a>
-            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>. <a target="_blank" href="https://icons8.com/icons/set/chevron-up">Chevron Up </a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-        </div>
-    </div>
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a>, 
+                <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a>, 
+                <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>, 
+                <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a>, 
+                <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a>, 
+                <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, 
+                <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a>,
+                <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a>, 
+                <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a>,
+                <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a>, 
+                <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a>
+                    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.</span>
+            </div>
+        </footer>
     <script type="text/javascript" src="static/js/plot.js"></script>
 </body>
 </html>

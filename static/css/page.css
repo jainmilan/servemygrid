@@ -11,6 +11,10 @@ div.hidden {
   display: none;
 }
 
+.mainbox{
+    min-height: 80vh;
+}
+
 fieldset.scheduler-border {
     border: 1px groove #ddd !important;
     padding: 0 1.4em 1.4em 1.4em !important;
@@ -59,7 +63,7 @@ legend.scheduler-border {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:70%;height:auto;
+    width:50%;height:auto;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -90,18 +94,4 @@ legend.scheduler-border {
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #340;
-    shape-rendering: crispEdges;
-}
-.vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
-
-    display: flex;
-    align-items: center;
 }
