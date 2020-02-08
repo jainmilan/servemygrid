@@ -64,7 +64,7 @@ legend.scheduler-border {
 
 .backButton .back{
     width:auto;
-    height:5vh;
+    height:3.5vh;
     cursor:pointer;
     display:inline-block;
     background-size:contain;
@@ -165,8 +165,8 @@ legend.scheduler-border {
 }
 
 .appliancePanel .imageBox{
-    margin: 0 0 1vh 0;
-    padding: 0 0 0 0;    
+    margin: 1vh 0 1vh 0;
+    padding: 1vh 0 1vh 0;    
 }
 
 .imageBox .label-image{
@@ -174,7 +174,7 @@ legend.scheduler-border {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:100%; height:auto;
+    width:75%; height:auto;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -189,8 +189,8 @@ legend.scheduler-border {
 }
 
 .selectionBox .iconBox{
-    margin: 0 0 0 3vh;
-    padding: 0 0 5vh 0;    
+    margin: 0 0 3vh 3vh;
+    padding: 0 0 2vh 0;    
 }
 
 .iconBox .linkIcon {

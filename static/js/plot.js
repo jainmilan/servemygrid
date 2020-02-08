@@ -73,7 +73,7 @@ jQuery(document).ready(function(){
     var currentDiv = "buildingType";
     var dataList;
     
-    d3.csv("static/data/appList.csv").then(function(data){
+    d3.json("static/data/sensorsList.json").then(function(data){
         dataList = data;
     });
     var parentDict = {
@@ -118,8 +118,8 @@ jQuery(document).ready(function(){
 
             d3.select("#applianceList").selectAll("*").remove();
             var buildingType = jQuery('input[name="commercialType"]:checked').val();
-            dataList.forEach(function(d){
-                var appType = d[buildingType];
+            dataList[0][buildingType].forEach(function(d){
+                var appType = Object.keys(d)[0];
                 plotApplicationBox(appType);
             });
         }
@@ -147,8 +147,8 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="residentialType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
@@ -159,8 +159,8 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="officeType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
@@ -171,8 +171,8 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="healthcareType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
@@ -183,8 +183,8 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="schoolType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
@@ -195,8 +195,8 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="hotelType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
@@ -207,8 +207,8 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="restaurantType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
@@ -219,14 +219,13 @@ jQuery(document).ready(function(){
         
         d3.select("#applianceList").selectAll("*").remove();
         var buildingType = jQuery('input[name="shopType"]:checked').val();
-        dataList.forEach(function(d){
-            var appType = d[buildingType];
+        dataList[0][buildingType].forEach(function(d){
+            var appType = Object.keys(d)[0];
             plotApplicationBox(appType);
         });
     });
 });
 
 function reloadLayout() {
-    console.log('static/images/floorPlans/' + document.getElementById("apt_type").value + 'BR.jpg');
     document.getElementById('aptLayout').src = 'static/images/floorPlans/' + document.getElementById("apt_type").value + 'BR.jpg';
 }
