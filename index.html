@@ -187,8 +187,8 @@
                         <div class="col-md-12 form-group hidden selectionPanel healthcareType">
                             <div class="row typeRow">
                                 <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                    <input class="form-check-input" type="radio" name="healthcareType" id="outpatient" value="outpatient">
-                                    <label class="form-check-label leaf" for="outpatient">
+                                    <input class="form-check-input" type="radio" name="healthcareType" id="outPatient" value="outPatient">
+                                    <label class="form-check-label leaf" for="outPatient">
                                         <figure>
                                             <img class="label-image" src="static/images/icons/cross.png" alt="">
                                             <figcaption class="tag">Outpatient Healthcare</figcaption>
@@ -274,7 +274,7 @@
                         </div>
                         <div class="col-md-12 form-group hidden selectionPanel shopType">
                             <div class="row typeRow">
-                                <div class="form-check form-check-inline selectionBox">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
                                     <input class="form-check-input" type="radio" name="shopType" id="retail" value="retail">
                                     <label class="form-check-label leaf" for="retail">
                                         <figure>
@@ -283,7 +283,7 @@
                                         </figure>
                                     </label>
                                 </div>
-                                <div class="form-check form-check-inline selectionBox">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
                                     <input class="form-check-input" type="radio" name="shopType" id="mall" value="mall">
                                     <label class="form-check-label leaf" for="mall">
                                         <figure>
@@ -299,7 +299,8 @@
                 <div class="col-md-3 hidden appliancePanel">
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">Appliance Selection Panel</legend>
-                        <div class="col-md-12 form-group selectionPanel">
+                        <div class="col-md-12 form-group selectionPanel" id="applianceList">
+                        <!--
                             <div class="col-md-5 form-check form-check-inline selectionBox">
                                 <div class="col-md-8 imageBox">
                                     <input class="form-check-input" type="checkbox" name="applianceType" id="hvac" value="hvac">
@@ -509,6 +510,7 @@
                                     </div>
                                 </div>
                             </div>
+                        -->
                         </div>
                     </fieldset>    
                 </div>  
