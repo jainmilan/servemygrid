@@ -189,7 +189,7 @@ legend.scheduler-border {
 }
 
 .selectionBox .iconBox{
-    margin: 0 0 3vh 3vh;
+    margin: 0 0 3vh 1vh;
     padding: 0 0 2vh 0;    
 }
 
@@ -220,4 +220,19 @@ legend.scheduler-border {
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.servicePanel {
+    margin: 2vh 1vw 2vh 1vw;
+    padding: 2vh 0vw 2vh 0vw;
+}
+.servicePanel .table-image {
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:60%;height:auto;
+}
+
+.cell {
+    vertical-align: bottom;
 }
