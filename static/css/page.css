@@ -11,40 +11,65 @@ div.hidden {
   display: none;
 }
 
-.mainbox{
+.mainbox {
     min-height: 80vh;
 }
 
 fieldset.scheduler-border {
     border: 1px groove #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
+    padding: 0 0 0 2vh !important;
+    margin: 0 0 0 0 !important;
     -webkit-box-shadow:  0px 0px 0px 0px #000;
             box-shadow:  0px 0px 0px 0px #000;
 }
 
 legend.scheduler-border {
-    font-size: 1.2em !important;
+    font-size: 2.7vh !important;
     text-align: left !important;
     width:auto;
     padding:0 10px;
     border-bottom:none;
 }
 
+.selectionPanel {
+    margin: 0;
+    padding: 0;
+}
+
 .selectionPanel input{
-    margin:0;padding:0;
+    margin:0; padding:0;
     -webkit-appearance:none;
        -moz-appearance:none;
             appearance:none;
 }
 
-.back{background-image:url('../images/icons/up-arrow.png');}
-.back{
+.tag {
+    font-size:80%;
+    margin-top: 1vh;
+}
+
+.buildingPanel {
+    margin: 2vh 1vw 2vh 1vw;
+    padding: 2vh 1vw 2vh 1vw;
+}
+
+.buildingPanel .backButton {
+    text-align: center;
+}
+
+.buildingPanel .typeRow {
+    margin: 0 0 0 0;
+    padding: 2vh 0 0 0;
+}
+
+.backButton .back{
+    width:auto;
+    height:5vh;
     cursor:pointer;
+    display:inline-block;
     background-size:contain;
     background-repeat:no-repeat;
-    display:inline-block;
-    width:auto;height:4vh;
+    background-image:url('../images/icons/up-arrow.png');
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -52,18 +77,68 @@ legend.scheduler-border {
        -moz-filter: brightness(1.8) grayscale(1) opacity(.5);
             filter: brightness(1.8) grayscale(1) opacity(.5);
 }
-.back:hover{
+.backButton .back:hover{
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
 
-.label-image{
+.leaf {
+  border: 1px solid #fff;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.leaf:before {
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 22px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+.leaf img {
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + .leaf {
+  border-color: #ddd;
+}
+
+:checked + .leaf:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + .leaf img {
+  transform: scale(0.9);
+  box-shadow: 0 0 0 #333;
+  z-index: -1;
+}
+
+.buildingPanel .selectionBox {
+    text-align: center;
+    margin: 0 0.6vw 0 0.6vw;
+    padding: 0 1vw 0 1vw; 
+    justify-content: center;
+}
+
+.buildingPanel .label-image{
     cursor:pointer;
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:50%;height:auto;
+    width:70%; height:auto;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -71,10 +146,61 @@ legend.scheduler-border {
        -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
             filter: brightness(1.8) grayscale(1) opacity(.7);
 }
-.label-image:hover{
+.imageBox .label-image:hover{
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.appliancePanel {
+    margin: 2vh 1vw 2vh 1vw;
+    padding: 2vh 0vw 2vh 0vw;
+}
+
+.appliancePanel .selectionBox {
+    text-align: center;
+    margin: 1vh 0.5vw 0 0.5vw;
+    padding: 1vh 0.5vw 0 0.5vw; 
+    justify-content: center;
+}
+
+.appliancePanel .imageBox{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;    
+}
+
+.imageBox .label-image{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100%; height:auto;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.imageBox .label-image:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.selectionBox .iconBox{
+    margin: 0 0 0 3vh;
+    padding: 0 0 5vh 0;    
+}
+
+.iconBox .linkIcon {
+    padding: 0;
+    margin: 0 0 1vh 0;
+}
+
+.iconBox .uploadIcon {
+    padding: 0;
+    margin: 0;
 }
 
 .icon-image{
@@ -82,7 +208,7 @@ legend.scheduler-border {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:35%;height:auto;
+    width:60%;height:auto;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -90,7 +216,7 @@ legend.scheduler-border {
        -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
             filter: brightness(1.8) grayscale(1) opacity(.7);
 }
-.icon-image:hover{
+.iconBox .icon-image:hover{
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);

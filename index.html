@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/page.css">
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/d3/d3.min.js"></script>
-    <script src="https://kit.fontawesome.com/ec5159a5c8.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body class="d-flex flex-column h-100">
@@ -37,491 +36,482 @@
     </nav>
     <div class="container-fluid mx-auto">       
         <div class="row mainbox" id="input">
-            <div class="col-md-7">
-                <div class="row mx-2">
-                    <div class="col-md-6 mt-4 mb-2">
-                        <fieldset class="scheduler-border">
-                            <legend class="scheduler-border">Building Selection Panel</legend>
-                            <div class="backButton col-md-12 mx-auto px-auto justify-content-center text-center hidden">
-                                <button type="button" id="backButton" class="btn btn-default back"></button>
+                <div class="col-md-3 buildingPanel">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Building Selection Panel</legend>
+                        <div class="backButton col-md-12 hidden">
+                            <button type="button" id="backButton" class="btn btn-default back"></button>
+                        </div>
+                        <div class="col-md-12 form-group selectionPanel buildingType">
+                            <div class="row typeRow">
+                                <div class="col-md-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="buildingType" id="residential" value="residential">
+                                    <label class="form-check-label" for="residential">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/house.png" alt="">
+                                            <figcaption class="tag">Residential</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="buildingType" id="commercial" value="commercial">
+                                    <label class="form-check-label" for="commercial">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/skyscraper.png" alt="">
+                                            <figcaption class="tag">Commercial</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col-md-12 form-group selectionPanel buildingType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="buildingType" id="residential" value="residential">
-                                        <label class="form-check-label" for="residential">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/house.png" alt="">
-                                                <figcaption>Residential</figcaption>
-                                            </figure>
-                                        </label>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel residentialType">
+                            <div class="row typeRow">
+                                <div class="col-md-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="residentialType" id="mra" value="mra">
+                                    <label class="form-check-label leaf" for="mra">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/midrise.png" alt="">
+                                            <figcaption class="tag">Mid-Rise Apartments</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="residentialType" id="hra" value="hra">
+                                    <label class="form-check-label leaf" for="hra">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/highrise.png" alt="">
+                                            <figcaption class="tag">High-Rise Apartments</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel commercialType">
+                            <div class="row typeRow">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="office" value="office">
+                                    <label class="form-check-label" for="office">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/work.png" alt="">
+                                            <figcaption class="tag">Office Building</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="healthcare" value="healthcare">
+                                    <label class="form-check-label" for="healthcare">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/health.png" alt="">
+                                            <figcaption class="tag">Healthcare Center</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="school" value="school">
+                                    <label class="form-check-label" for="school">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/school.png" alt="">
+                                            <figcaption class="tag">School</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="hotel" value="hotel">
+                                    <label class="form-check-label" for="hotel">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/hotel.png" alt="">
+                                            <figcaption class="tag">Hotel</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="restaurant" value="restaurant">
+                                    <label class="form-check-label" for="restaurant">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/restaurant.png" alt="">
+                                            <figcaption class="tag">Restaurant</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="shop" value="shop">
+                                    <label class="form-check-label" for="shop">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/shop.png" alt="">
+                                            <figcaption class="tag">Shopping Center</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="commercialType" id="warehouse" value="warehouse">
+                                    <label class="form-check-label leaf" for="warehouse">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/warehouse.png" alt="">
+                                            <figcaption class="tag">Warehouse</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel officeType">
+                            <div class="row typeRow">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="officeType" id="smallOff" value="smallOff">
+                                    <label class="form-check-label leaf" for="smallOff">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/office.png" alt="">
+                                            <figcaption class="tag">Small Size Office</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="officeType" id="medOff" value="medOff">
+                                    <label class="form-check-label leaf" for="medOff">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/home-building.png" alt="">
+                                            <figcaption class="tag">Medium Size Office</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="officeType" id="largeOff" value="largeOff">
+                                    <label class="form-check-label leaf" for="largeOff">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/skyscrapper.png" alt="">
+                                            <figcaption class="tag">Large Size Office</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel healthcareType">
+                            <div class="row typeRow">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="healthcareType" id="outpatient" value="outpatient">
+                                    <label class="form-check-label leaf" for="outpatient">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/cross.png" alt="">
+                                            <figcaption class="tag">Outpatient Healthcare</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="healthcareType" id="hospital" value="hospital">
+                                    <label class="form-check-label leaf" for="hospital">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/hospital.png" alt="">
+                                            <figcaption class="tag">Hospital</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel schoolType">
+                            <div class="row typeRow">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="schoolType" id="primary" value="primary">
+                                    <label class="form-check-label leaf" for="primary">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/primary.png" alt="">
+                                            <figcaption class="tag">Primary School</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="schoolType" id="secondary" value="secondary">
+                                    <label class="form-check-label leaf" for="secondary">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/secondary.png" alt="">
+                                            <figcaption class="tag">Secondary School</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel hotelType">
+                            <div class="row typeRow">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
+                                    <label class="form-check-label leaf" for="smallHotel">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/small-hotel.png" alt="">
+                                            <figcaption class="tag">Small Hotel</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="hotelType" id="largeHotel" value="largeHotel">
+                                    <label class="form-check-label leaf" for="largeHotel">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/resort.png" alt="">
+                                            <figcaption class="tag">Large Hotel</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel restaurantType">
+                            <div class="row typeRow">
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="restaurantType" id="quickService" value="quickService">
+                                    <label class="form-check-label leaf" for="quickService">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/food-and-restaurant.png" alt="">
+                                            <figcaption class="tag">Quick Service Restaurant</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-sm-5 form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="restaurantType" id="fullService" value="fullService">
+                                    <label class="form-check-label leaf" for="fullService">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/urban.png" alt="">
+                                            <figcaption class="tag">Full Service Restaurant</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group hidden selectionPanel shopType">
+                            <div class="row typeRow">
+                                <div class="form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="shopType" id="retail" value="retail">
+                                    <label class="form-check-label leaf" for="retail">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/retail.png" alt="">
+                                            <figcaption class="tag">Retail Shop</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline selectionBox">
+                                    <input class="form-check-input" type="radio" name="shopType" id="mall" value="mall">
+                                    <label class="form-check-label leaf" for="mall">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/mall.png" alt="">
+                                            <figcaption class="tag">Strip Mall</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-3 hidden appliancePanel">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Appliance Selection Panel</legend>
+                        <div class="col-md-12 form-group selectionPanel">
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="hvac" value="hvac">
+                                    <label class="form-check-label leaf" for="hvac">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/climatization.png" alt="">
+                                            <figcaption class="tag">HVAC</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="buildingType" id="commercial" value="commercial">
-                                        <label class="form-check-label" for="commercial">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/skyscraper.png" alt="">
-                                                <figcaption>Commercial</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel residentialType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="residentialType" id="mra" value="mra">
-                                        <label class="form-check-label" for="mra">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/midrise.png" alt="">
-                                                <figcaption>Mid-Rise Apartments</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="lighting" value="lighting">
+                                    <label class="form-check-label leaf" for="lighting">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/solar.png" alt="">
+                                            <figcaption class="tag">Lighting</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-md-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="residentialType" id="hra" value="hra">
-                                        <label class="form-check-label" for="hra">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/highrise.png" alt="">
-                                                <figcaption>High-Rise Apartments</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel commercialType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="office" value="office">
-                                        <label class="form-check-label" for="office">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/work.png" alt="">
-                                                <figcaption>Office Building</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="desktops" value="desktops">
+                                    <label class="form-check-label leaf" for="desktops">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/personal-computer.png" alt="">
+                                            <figcaption class="tag">Desktops</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="healthcare" value="healthcare">
-                                        <label class="form-check-label" for="healthcare">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/health.png" alt="">
-                                                <figcaption>Healtcare Center</figcaption>
-                                            </figure>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="school" value="school">
-                                        <label class="form-check-label" for="school">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/school.png" alt="">
-                                                <figcaption>School</figcaption>
-                                            </figure>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="hotel" value="hotel">
-                                        <label class="form-check-label" for="hotel">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/hotel.png" alt="">
-                                                <figcaption>Hotel</figcaption>
-                                            </figure>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="restaurant" value="restaurant">
-                                        <label class="form-check-label" for="restaurant">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/restaurant.png" alt="">
-                                                <figcaption>Restaurant</figcaption>
-                                            </figure>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="shop" value="shop">
-                                        <label class="form-check-label" for="shop">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/shop.png" alt="">
-                                                <figcaption>Shopping Center</figcaption>
-                                            </figure>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="commercialType" id="warehouse" value="warehouse">
-                                        <label class="form-check-label" for="warehouse">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/warehouse.png" alt="">
-                                                <figcaption>Warehouse</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel officeType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="officeType" id="smallOff" value="smallOff">
-                                        <label class="form-check-label" for="smallOff">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/office.png" alt="">
-                                                <figcaption>Small Size Office</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="laptops" value="laptops">
+                                    <label class="form-check-label leaf" for="laptops">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/laptop.png" alt="">
+                                            <figcaption class="tag">Laptops</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="officeType" id="medOff" value="medOff">
-                                        <label class="form-check-label" for="medOff">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/home-building.png" alt="">
-                                                <figcaption>Medium Size Office</figcaption>
-                                            </figure>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="officeType" id="largeOff" value="largeOff">
-                                        <label class="form-check-label" for="largeOff">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/skyscrapper.png" alt="">
-                                                <figcaption>Large Size Office</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel healthcareType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="healthcareType" id="outpatient" value="outpatient">
-                                        <label class="form-check-label" for="outpatient">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/cross.png" alt="">
-                                                <figcaption>Outpatient Healthcare</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="monitors" value="monitors">
+                                    <label class="form-check-label leaf" for="monitors">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/computer-screen.png" alt="">
+                                            <figcaption class="tag">Monitors</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="healthcareType" id="hospital" value="hospital">
-                                        <label class="form-check-label" for="hospital">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/hospital.png" alt="">
-                                                <figcaption>Hospital</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel schoolType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="schoolType" id="primary" value="primary">
-                                        <label class="form-check-label" for="primary">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/primary.png" alt="">
-                                                <figcaption>Primary School</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="refrigerators" value="refrigerators">
+                                    <label class="form-check-label leaf" for="refrigerators">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/fridge.png" alt="">
+                                            <figcaption class="tag">Refrigerators</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="schoolType" id="secondary" value="secondary">
-                                        <label class="form-check-label" for="secondary">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/secondary.png" alt="">
-                                                <figcaption>Secondary School</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel hotelType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
-                                        <label class="form-check-label" for="smallHotel">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/small-hotel.png" alt="">
-                                                <figcaption>Small Hotel</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="kitchenVent" value="kitchenVent">
+                                    <label class="form-check-label leaf" for="kitchenVent">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/kitchen ventilation.png" alt="">
+                                            <figcaption class="tag">Kitchen Ventillation</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="hotelType" id="largeHotel" value="largeHotel">
-                                        <label class="form-check-label" for="largeHotel">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/resort.png" alt="">
-                                                <figcaption>Large Hotel</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel restaurantType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="restaurantType" id="quickService" value="quickService">
-                                        <label class="form-check-label" for="quickService">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/food-and-restaurant.png" alt="">
-                                                <figcaption>Quick Service Restaurant</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="videoDisplay" value="videoDisplay">
+                                    <label class="form-check-label leaf" for="videoDisplay">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/television.png" alt="">
+                                            <figcaption class="tag">Video Display</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-sm-5 form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="restaurantType" id="fullService" value="fullService">
-                                        <label class="form-check-label" for="fullService">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/urban.png" alt="">
-                                                <figcaption>Full Service Restaurant</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group hidden selectionPanel shopType mt-3">
-                                <div class="row pt-2 mt-2">
-                                    <div class="form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="shopType" id="retail" value="retail">
-                                        <label class="form-check-label" for="retail">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/retail.png" alt="">
-                                                <figcaption>Retail Shop</figcaption>
-                                            </figure>
-                                        </label>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="securitySystem" value="securitySystem">
+                                    <label class="form-check-label leaf" for="securitySystem">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/cctv.png" alt="">
+                                            <figcaption class="tag">Security System</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="form-check form-check-inline text-center mx-auto px-0 justify-content-center">
-                                        <input class="form-check-input" type="radio" name="shopType" id="mall" value="mall">
-                                        <label class="form-check-label" for="mall">
-                                            <figure>
-                                                <img class="label-image" src="static/images/icons/mall.png" alt="">
-                                                <figcaption>Strip Mall</figcaption>
-                                            </figure>
-                                        </label>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                        </fieldset>
-                    </div>
-                    <div class="col-md-6 form-group hidden selectionPanel applianceType mt-4 mb-0 px-0">
-                        <fieldset class="scheduler-border">
-                            <legend class="scheduler-border">Appliance Selection Panel</legend>
-                            <div class="col-md-12 form-group mx-0 px-0">
-                                <div class="row">
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="hvac" value="hvac">
-                                            <label class="form-check-label text-center" for="hvac">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/climatization.png" alt="">
-                                                    <figcaption class="align-bottom">HVAC</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row ml-0 px-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="medImaging" value="medImaging">
+                                    <label class="form-check-label leaf" for="medImaging">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/magnetic-resonance-imaging.png" alt="">
+                                            <figcaption class="tag">Medical Imaging Equipment</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
                                     </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="lighting" value="lighting">
-                                            <label class="form-check-label text-center" for="lighting">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/solar.png" alt="">
-                                                    <figcaption>Lighting</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="desktops" value="desktops">
-                                            <label class="form-check-label text-center" for="desktops">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/personal-computer.png" alt="">
-                                                    <figcaption>Desktops</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row ml-0 px-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="laptops" value="laptops">
-                                            <label class="form-check-label text-center" for="laptops">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/laptop.png" alt="">
-                                                    <figcaption>Laptops</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="monitors" value="monitors">
-                                            <label class="form-check-label text-center" for="monitors">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/computer-screen.png" alt="">
-                                                    <figcaption>Monitors</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="refrigerators" value="refrigerators">
-                                            <label class="form-check-label text-center" for="refrigerators">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/fridge.png" alt="">
-                                                    <figcaption>Refrigerators</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="kitchenVent" value="kitchenVent">
-                                            <label class="form-check-label text-center" for="kitchenVent">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/kitchen ventilation.png" alt="">
-                                                    <figcaption>Kitchen Ventillation</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="videoDisplay" value="videoDisplay">
-                                            <label class="form-check-label text-center" for="videoDisplay">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/television.png" alt="">
-                                                    <figcaption>Video Display</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="securitySystem" value="securitySystem">
-                                            <label class="form-check-label text-center" for="securitySystem">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/cctv.png" alt="">
-                                                    <figcaption>Security System</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="medImaging" value="medImaging">
-                                            <label class="form-check-label text-center" for="medImaging">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/magnetic-resonance-imaging.png" alt="">
-                                                    <figcaption>Medical Imaging Equipment</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-check form-check-inline mx-0 px-0">
-                                        <div class="col-md-8 mx-0 px-0">
-                                            <input class="form-check-input" type="checkbox" name="applianceType" id="labEquipment" value="labEquipment">
-                                            <label class="form-check-label text-center" for="labEquipment">
-                                                <figure>
-                                                    <img class="label-image" src="static/images/icons/microscope.png" alt="">
-                                                    <figcaption>Specialized Lab Equipment</figcaption>
-                                                </figure>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4 ml-0 px-0">
-                                            <div class="row px-0 ml-0 mb-2">
-                                                <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
-                                            </div>
-                                            <div class="row ml-0 px-0 mb-0">
-                                                <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
-                                            </div>
-                                        </div>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                        </fieldset>    
-                    </div>
-                </div>   
-            </div>
-            <div class="col-md-4">
-                
-            </div>
+                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                                <div class="col-md-8 imageBox">
+                                    <input class="form-check-input" type="checkbox" name="applianceType" id="labEquipment" value="labEquipment">
+                                    <label class="form-check-label leaf" for="labEquipment">
+                                        <figure>
+                                            <img class="label-image" src="static/images/icons/microscope.png" alt="">
+                                            <figcaption class="tag">Specialized Lab Equipment</figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 iconBox">
+                                    <div class="row linkIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/link.png" alt="">
+                                    </div>
+                                    <div class="row uploadIcon">
+                                        <img class="icon-image float-left" src="static/images/icons/upload.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>    
+                </div>  
         </div>
         <footer class="footer">
             <div class="container">
@@ -539,6 +529,7 @@
                     from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.</span>
             </div>
         </footer>
+    </div>
     <script type="text/javascript" src="static/js/plot.js"></script>
 </body>
 </html>
