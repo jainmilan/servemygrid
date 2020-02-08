@@ -45,9 +45,10 @@ jQuery(document).ready(function(){
     });
     
     jQuery('#backButton').on('click', function(){
-        jQuery('.' + currentDiv).hide();
-        var unselect = currentDiv.split("Type")[0];
+        jQuery('input:checkbox').prop('checked', false);
+        jQuery('input:radio').prop('checked', false);
         
+        jQuery('.' + currentDiv).hide();
         currentDiv = parentDict[currentDiv];
         
         if (currentDiv == "buildingType") {
@@ -55,34 +56,40 @@ jQuery(document).ready(function(){
         }
         jQuery('.' + currentDiv).show();
         jQuery('.appliancePanel').hide();
-        jQuery('#' + unselect).prop("checked", false);
     });
     
     jQuery('input[type=radio][name=residentialType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.appliancePanel').show();
     });
     
     jQuery('input[type=radio][name=officeType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.appliancePanel').show();
     });
     
     jQuery('input[type=radio][name=healthcareType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.appliancePanel').show();
     });
     
     jQuery('input[type=radio][name=schoolType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.appliancePanel').show();
     });
     
     jQuery('input[type=radio][name=hotelType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.appliancePanel').show();
     });
     
     jQuery('input[type=radio][name=restaurantType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.appliancePanel').show();
     });
 
     jQuery('input[type=radio][name=shopType]').on('change', function(){
+        jQuery('input:checkbox').prop('checked', false);
         jQuery('.applianceType').show();
     });
 });

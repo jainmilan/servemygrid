@@ -128,7 +128,7 @@ legend.scheduler-border {
 
 .buildingPanel .selectionBox {
     text-align: center;
-    margin: 0 0.6vw 0 0.6vw;
+    margin: 0 0.6vw 1vh 0.6vw;
     padding: 0 1vw 0 1vw; 
     justify-content: center;
 }
@@ -159,13 +159,13 @@ legend.scheduler-border {
 
 .appliancePanel .selectionBox {
     text-align: center;
-    margin: 1vh 0.5vw 0 0.5vw;
-    padding: 1vh 0.5vw 0 0.5vw; 
+    margin: 0vh 0.5vw 0 0.5vw;
+    padding: 0vh 0.5vw 0 0.5vw; 
     justify-content: center;
 }
 
 .appliancePanel .imageBox{
-    margin: 0 0 0 0;
+    margin: 0 0 1vh 0;
     padding: 0 0 0 0;    
 }
 
