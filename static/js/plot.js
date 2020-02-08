@@ -1,4 +1,13 @@
-function plotApplicationBox(appType) {
+function showStreams(appType, streamList) {
+    $('#streamList').modal('show');
+    d3.select(".modal-body").selectAll("*").remove();
+    
+    streamList.forEach(function(d){
+        d3.select(".modal-body").append("p").text(d);
+    });
+}
+
+function plotApplicationBox(appType, streamList) {
     var selectionBox = d3.select('#applianceList')
                         .append('div')
                             .attr('class', 'col-md-5 form-check form-check-inline selectionBox');
@@ -25,7 +34,7 @@ function plotApplicationBox(appType) {
     figure.append('figcaption')
             .attr('class', 'tag')
             .text(function(){
-                var output = "Specialized Lab Equipment";
+                var output = "Lab Equipment";
                 if (appType == "hvac") {
                     output = "HVAC";
                 } else if (appType == "lighting") {
@@ -45,7 +54,7 @@ function plotApplicationBox(appType) {
                 } else if (appType == "securitySystem") {
                     output = "Security System";
                 } else if (appType == "medImaging") {
-                    output = "Medical Imaging Equipment";
+                    output = "Imaging Equipment";
                 }
                 return output;
             });
@@ -58,14 +67,17 @@ function plotApplicationBox(appType) {
                     .append('div')
                         .attr('class', 'row linkIcon');
     linkBox.append('img')
-            .attr('class', 'icon-image float-left')
-            .attr('src', 'static/images/icons/link.png');
+            .attr('class', 'icon-image linkClass ' + appType + 'Link')
+            .attr('src', 'static/images/icons/link.png')
+            .on('click', function(){
+                showStreams(appType, streamList);
+            });
 
     var uploadBox = iconBox
                     .append('div')
                         .attr('class', 'row uploadIcon');
     uploadBox.append('img')
-            .attr('class', 'icon-image float-left')
+            .attr('class', 'icon-image uploadClass ' + appType + 'Upload')
             .attr('src', 'static/images/icons/upload.png');
 }
 
@@ -103,7 +115,7 @@ function getTable(buildingType) {
 function getAppliancePanel(dataList, buildingType) {
     dataList[0][buildingType].forEach(function(d){
         var appType = Object.keys(d)[0];
-        plotApplicationBox(appType);                                  
+        plotApplicationBox(appType, d[appType]['streams']);                                  
     });
     
     jQuery('.servicePanel').show();
@@ -120,11 +132,11 @@ function getAppliancePanel(dataList, buildingType) {
             tr.append('th')
                 .attr('scope', 'row')
               .append('img')
-                .attr('class', 'table-image')
+                .attr('class', 'row-image')
                 .attr('src', 'static/images/icons/' + jQuery(this).val() + '.png');
             
             tr.selectAll('.tableRow')
-                .data([1, 1, 1, 1])
+                .data([...Array(4)].map(() => Math.floor(Math.random()*9)))
                 .enter()
               .append('td')
                 .attr('class', 'cell')

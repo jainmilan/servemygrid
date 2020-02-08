@@ -36,15 +36,15 @@
     </nav>
     <div class="container-fluid mx-auto">       
         <div class="row mainbox" id="input">
-            <div class="col-md-3 buildingPanel">
+            <div class="col-sm-3 buildingPanel">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Building Selection Panel</legend>
-                    <div class="backButton col-md-12 hidden">
+                    <div class="backButton col-sm-12 hidden">
                         <button type="button" id="backButton" class="btn btn-default back"></button>
                     </div>
-                    <div class="col-md-12 form-group selectionPanel buildingType">
+                    <div class="col-sm-12 form-group selectionPanel buildingType">
                         <div class="row typeRow">
-                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                            <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="buildingType" id="residential" value="residential">
                                 <label class="form-check-label" for="residential">
                                     <figure>
@@ -53,7 +53,7 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                            <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="buildingType" id="commercial" value="commercial">
                                 <label class="form-check-label" for="commercial">
                                     <figure>
@@ -64,9 +64,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel residentialType">
+                    <div class="col-sm-12 form-group hidden selectionPanel residentialType">
                         <div class="row typeRow">
-                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                            <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="residentialType" id="mra" value="mra">
                                 <label class="form-check-label leaf" for="mra">
                                     <figure>
@@ -75,7 +75,7 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-md-5 form-check form-check-inline selectionBox">
+                            <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="residentialType" id="hra" value="hra">
                                 <label class="form-check-label leaf" for="hra">
                                     <figure>
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel commercialType">
+                    <div class="col-sm-12 form-group hidden selectionPanel commercialType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="commercialType" id="office" value="office">
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel officeType">
+                    <div class="col-sm-12 form-group hidden selectionPanel officeType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="officeType" id="smallOff" value="smallOff">
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel healthcareType">
+                    <div class="col-sm-12 form-group hidden selectionPanel healthcareType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="healthcareType" id="outPatient" value="outPatient">
@@ -206,7 +206,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel schoolType">
+                    <div class="col-sm-12 form-group hidden selectionPanel schoolType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="schoolType" id="primary" value="primary">
@@ -228,7 +228,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel hotelType">
+                    <div class="col-sm-12 form-group hidden selectionPanel hotelType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
@@ -250,7 +250,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel restaurantType">
+                    <div class="col-sm-12 form-group hidden selectionPanel restaurantType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="restaurantType" id="quickService" value="quickService">
@@ -272,7 +272,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 form-group hidden selectionPanel shopType">
+                    <div class="col-sm-12 form-group hidden selectionPanel shopType">
                         <div class="row typeRow">
                             <div class="col-sm-5 form-check form-check-inline selectionBox">
                                 <input class="form-check-input" type="radio" name="shopType" id="retail" value="retail">
@@ -296,45 +296,14 @@
                     </div>
                 </fieldset>
             </div>
-            <div class="col-md-3 hidden appliancePanel">
+            <div class="col-sm-3 hidden appliancePanel">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Appliance Selection Panel</legend>
-                    <div class="col-md-12 form-group selectionPanel" id="applianceList">
+                    <div class="col-sm-12 form-group selectionPanel" id="applianceList">
                     </div>
                 </fieldset>    
             </div> 
-            <div class="col-md-5 hidden servicePanel">
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col"><img class="table-image" src="static/images/icons/mall.png" alt=""></th>
-                            <th scope="col">Curtailment</th>
-                            <th scope="col">Frequency Regulation</th>
-                            <th scope="col">Ramping</th>
-                            <th scope="col">Reactive Power Control</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"><img class="table-image" src="static/images/icons/mall.png" alt=""></th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>    
+            <div class="col-sm-5 hidden servicePanel">    
             </div>
         </div>
         <footer class="footer">
@@ -353,6 +322,24 @@
                     from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.</span>
             </div>
         </footer>
+        <div class="modal fade" id="streamList" tabindex="-1" role="dialog" aria-labelledby="streamListTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="streamListLongTitle">Data Streams</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="static/js/plot.js"></script>
 </body>
