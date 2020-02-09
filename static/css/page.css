@@ -448,54 +448,80 @@ legend.scheduler-border {
 
 @media screen and (max-width: 480px) {
     legend.scheduler-border {
-        font-size: 3.5vw !important;
+        font-size: 3.6vw !important;
     }
     .tag {
-        font-size: 3.2vw; /* The width is 100%, when the viewport is 800px or smaller */
+        font-size: 3vw; /* The width is 100%, when the viewport is 800px or smaller */
     }
     .buildingPanel .label-image{
-        width:30%;
+        width:25%;
+    }
+    .appliancePanel .imageBox{
+        margin: 1vw 0 1vw 12vw;
+        padding: 1vw 0 1vw 12vw;    
     }
     .imageBox .label-image{
-        width:80%;
+        width:50%;
+    }
+    .selectionBox .iconBox{
+        margin: 0 0 3vw 0;
+        padding: 0 0 2vw 0;    
     }
     .icon-image{
         width:15%;
     }
     .table .table-image {
-        width:8vw;
+        width:11vw;
     }
     .table .row-image {
-        width:7vw;
+        width:9vw;
     }
+    
+    .table > tbody > tr > td {
+        font-size: 2.7vw;
+    }
+
     .table > thead > tr > th {
-        font-size: 20vw;
+        font-size: 2.5vw;
     }
 }
 
 @media screen and (max-width: 320px) {
     legend.scheduler-border {
-        font-size: 3.5vw !important;
+        font-size: 3.6vw !important;
     }
     .tag {
-        font-size: 3.2vw; /* The width is 100%, when the viewport is 800px or smaller */
+        font-size: 3vw; /* The width is 100%, when the viewport is 800px or smaller */
     }
     .buildingPanel .label-image{
-        width:30%;
+        width:25%;
+    }
+    .appliancePanel .imageBox{
+        margin: 1vw 0 1vw 12vw;
+        padding: 1vw 0 1vw 12vw;    
     }
     .imageBox .label-image{
-        width:80%;
+        width:50%;
+    }
+    .selectionBox .iconBox{
+        margin: 0 0 3vw 0;
+        padding: 0 0 2vw 0;    
     }
     .icon-image{
         width:15%;
     }
     .table .table-image {
-        width:8vw;
+        width:11vw;
     }
     .table .row-image {
-        width:6vw;
+        width:9vw;
     }
+    
+    .table > tbody > tr > td {
+        font-size: 2.7vw;
+    }
+
     .table > thead > tr > th {
-        font-size: 20vw;
+        font-size: 2.5vw;
     }
 }
