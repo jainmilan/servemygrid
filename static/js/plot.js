@@ -7,6 +7,30 @@ function showStreams(appType, streamList) {
     });
 }
 
+function updateTick(appCheck, appVal) {
+    if (appCheck) {
+        var tr = d3.selectAll('.tbody')
+                    .append('tr')
+                        .attr('class', 'tableRow')
+                        .attr('id', appVal + 'Row');
+
+        tr.append('th')
+            .attr('scope', 'row')
+          .append('img')
+            .attr('class', 'row-image')
+            .attr('src', 'static/images/icons/' + appVal + '.png');
+
+        tr.selectAll('.tableRow')
+            .data([...Array(4)].map(() => Math.floor(Math.random()*9)))
+            .enter()
+          .append('td')
+            .attr('class', 'cell')
+            .text(function(d){return d;});
+    } else {
+        d3.select('#' + appVal + 'Row').remove();
+    }    
+}
+
 function plotApplicationBox(appType, streamList) {
     var selectionBox = d3.select('#applianceList')
                         .append('div')
@@ -21,7 +45,10 @@ function plotApplicationBox(appType, streamList) {
         .attr('type', 'checkbox')
         .attr('name', 'applianceType')
         .attr('id', appType)
-        .attr('value', appType);
+        .attr('value', appType)
+        .on('change', function(){
+            updateTick(jQuery(this).is(':checked'), jQuery(this).val()); 
+        });
 
     var figure = imageBox.append('label')
                             .attr('class', 'form-check-label leaf')
@@ -121,30 +148,6 @@ function getAppliancePanel(dataList, buildingType) {
     jQuery('.servicePanel').show();
     d3.select(".servicePanel").selectAll("*").remove();
     getTable(buildingType);
-    
-    jQuery('input[type=checkbox][name=applianceType]').on('change', function(){
-        if (jQuery(this).is(':checked')) {
-            var tr = d3.selectAll('.tbody')
-                        .append('tr')
-                            .attr('class', 'tableRow')
-                            .attr('id', jQuery(this).val() + 'Row');
-                
-            tr.append('th')
-                .attr('scope', 'row')
-              .append('img')
-                .attr('class', 'row-image')
-                .attr('src', 'static/images/icons/' + jQuery(this).val() + '.png');
-            
-            tr.selectAll('.tableRow')
-                .data([...Array(4)].map(() => Math.floor(Math.random()*9)))
-                .enter()
-              .append('td')
-                .attr('class', 'cell')
-                .text(function(d){return d;});
-        } else {
-            d3.select('#' + jQuery(this).val() + 'Row').selectAll("*").remove();
-        }               
-    });
 }
 
 jQuery(document).ready(function(){
