@@ -1,0 +1,49 @@
+{
+	"mra":
+		{
+			"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"],
+			"floors": 
+			{
+				"F1": 
+				{
+					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
+					"zones":
+					{
+						"Z1":["HVAC", "Lighting", "Desktops", "Laptops"]
+					}	
+				},
+				"F2":
+				{
+					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
+					"zones":
+					{
+						"Z1":["HVAC", "Lighting", "Laptops", "Monitors"],
+						"Z2":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
+						"Z3":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
+						"Z4":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
+						"Z5":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"]
+					}
+				},
+				"F3":
+				{
+					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
+					"zones":
+					{
+						"Z1":["HVAC", "Lighting", "Laptops", "Monitors"],
+						"Z2":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
+						"Z3":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"]
+					}
+				},
+				"F4":
+				{
+					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
+					"zones":
+					{
+						"Z1":["HVAC", "Lighting", "Laptops", "Monitors"],
+						"Z2":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"]
+					}
+				}	
+			}
+			
+		}
+}

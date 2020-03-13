@@ -7,6 +7,23 @@ body {
     padding: 0;
 }
 
+.outerLine {
+  width: 1px;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.innerLine {
+  position: absolute;
+  width:100%;
+  height: 40%;
+  background: grey;
+  top: 30%;
+  box-shadow: 0px 0px 30px 20px grey;
+}
+
 div.hidden {
   display: none;
 }
@@ -65,7 +82,7 @@ legend.scheduler-border {
 
 .backButton .back{
     width:auto;
-    height:3.5vw;
+    height:2.5vw;
     cursor:pointer;
     display:inline-block;
     background-size:contain;
@@ -151,6 +168,16 @@ legend.scheduler-border {
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.configurationPanel {
+    margin: 1vw 1vw 2vw 1vw;
+    padding: 1vw 0vw 2vw 0vw;
+}
+
+.summaryPanel {
+    margin: 1vw 1vw 2vw 1vw;
+    padding: 1vw 0vw 2vw 0vw;
 }
 
 .appliancePanel {
@@ -261,6 +288,22 @@ legend.scheduler-border {
     vertical-align: middle;
     font-size: 1.2vw;
     text-align: center;
+}
+
+.table.buildingMap td:hover {
+    color: green;
+    background-color: aqua;
+}
+
+.table.buildingMap td a {
+    color: black;
+    text-decoration:none;
+    display:block;
+    width:100%;
+}
+
+.table.buildingMap td a:target {
+    display:block;
 }
 
 @media screen and (max-width: 1200px) {
