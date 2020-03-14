@@ -274,6 +274,13 @@ legend.scheduler-border {
     width:3.2vw; height:auto;
 }
 
+.table .row-simage {
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:1.5vw; height:auto;
+}
+
 .table > thead > tr > th {
     font-size: 1.1vw;
     text-align: center;
@@ -303,6 +310,22 @@ legend.scheduler-border {
 }
 
 .table.buildingMap td a:target {
+    display:block;
+}
+
+td.clickable-link:hover {
+    color: green;
+    background-color: aqua;
+}
+
+td.clickable-link a {
+    color: black;
+    text-decoration:none;
+    display:block;
+    width:100%;
+}
+
+td.clickable-link a:target {
     display:block;
 }
 

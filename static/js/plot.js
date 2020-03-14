@@ -1,12 +1,3 @@
-function showStreams(appType, streamList) {
-    $('#streamList').modal('show');
-    d3.select(".modal-body").selectAll("*").remove();
-    
-    streamList.forEach(function(d){
-        d3.select(".modal-body").append("p").text(d);
-    });
-}
-
 function updateTick(appCheck, appVal) {
     if (appCheck) {
         var tr = d3.selectAll('.tbody')
@@ -150,69 +141,144 @@ function getAppliancePanel(dataList, buildingType) {
     getTable(buildingType);
 }
 
-function printApplianceList(iType, id, buildingData) {
+function showStreams(streamInfo, streamList, buildingMap) {
+    $('#streamList').modal('show');
+    d3.select(".modal-body").selectAll("*").remove();
+    
+    var streamTable = d3.select(".modal-body").append('table')
+                            .attr('class', 'table table-sm table-bordered streamTable')
+    
+    var streamBody = streamTable.append('tbody')
+    
+    var i = 0;
+    streamList.forEach(function(d){
+        streamRow = streamBody.append('tr').attr('id', 'sr' + i.toString());
+        
+        streamRow.append('td')
+                    .attr('style', 'text-align:left;')
+                    .text(d)
+        streamRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('src', 'static/images/icons/link.png');
+        streamRow.append('td')
+                .text('stream-name');
+        streamRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('src', 'static/images/icons/upload.png');
+        streamRow.append('td')
+                .text('filename');
+        streamRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('id', streamInfo + '_' + i.toString())
+                    .attr('style', 'cursor:pointer;')
+                    .attr('src', 'static/images/icons/cancel.png')
+                .on('click', function(){
+                    console.log(this.id);
+                    var tag_list = this.id.split('_');
+                    console.log(tag_list);
+                    if (tag_list.length == 5) {
+                        jQuery("#sr" + tag_list[4].toString()).remove();
+                        delete buildingMap["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]][tag_list[4]]
+                    } else if (tag_list.length == 4) {
+                        jQuery("#sr" + tag_list[3].toString()).remove();
+                        delete buildingMap["floors"][tag_list[0]]["appliances"][tag_list[1]][tag_list[3]]
+                    } else if (tag_list.length == 3) {
+                        jQuery("#sr" + tag_list[2].toString()).remove();
+                        delete buildingMap["appliances"][tag_list[0]][tag_list[2]]
+                    }
+                });
+        i = i + 1;
+    });
+}
+
+function printApplianceList(iType, id, buildingMap) {
     var label = "";
+    var cross_tag = "";
     var appliances = [];
     if (iType == "building") {
         label = "Building Loads";
-        appliances = buildingData["appliances"];
+        cross_tag = "_"
+        appliances = buildingMap["appliances"];
     } else if (iType == "floor") {
         label = "Floor-" + id.split('F')[1].toString() + " Loads"
-        appliances = buildingData["floors"][id]["appliances"];
+        cross_tag = "F" + id.split('F')[1].toString() + "_"
+        appliances = buildingMap["floors"][id]["appliances"];
     } else if (iType == "zone") {
         label = "Floor-" + id.split('_')[0].split('F')[1].toString() + " Zone-" + id.split('_')[1].split('Z')[1].toString() + " Loads";
-        appliances = buildingData["floors"][id.split('_')[0]]["zones"][id.split('_')[1]];
+        cross_tag = "F" +  + id.split('_')[0].split('F')[1].toString() + "_Z" + id.split('_')[1].split('Z')[1].toString() + "_"
+        appliances = buildingMap["floors"][id.split('_')[0]]["zones"][id.split('_')[1]];
     }
     
     var applianceDiv = d3.select(".listOfAppliances");
     applianceDiv.selectAll("*").remove();
     
-    applianceDiv.append('label').text(label);
+    var applianceTable = applianceDiv.append('table')
+                            .attr('class', 'table table-sm table-bordered applianceList mx-2')
+                            .attr('id', 'applianceList')
     
-    var applianceList = applianceDiv.append('ul');
-    for (var i=0; i<appliances.length; i++) {
-        applianceList.append('li').text(appliances[i]);
+    var tableHead = applianceTable.append('thead').append('tr').append('th')
+            .attr('scope', 'col')
+            .attr('colspan', 2)
+            .text(label);
+    
+    var tableBody = applianceTable.append('tbody')
+    
+    for (var i=0; i<Object.keys(appliances).length; i++) {
+        var appliance = Object.keys(appliances)[i];
+        var app_cross_tag = cross_tag + appliance + '_' + i.toString();
+        
+        var tableRow = tableBody.append('tr').attr('id', 'r' + i.toString());
+        
+        tableRow.append('td')
+                    .attr('style', 'text-align:left;')
+                    .attr('class', 'clickable-link')
+                .append('a')
+                    .attr('href', 'javascript:void(0);')
+                    .text(appliance)
+                .on('click', function(data) {
+                    showStreams(app_cross_tag, appliances[appliance], buildingMap);
+                });
+        tableRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('id', app_cross_tag)
+                    .attr('src', 'static/images/icons/cancel.png')
+                    .attr('style', 'cursor:pointer;')
+                .on('click', function(){
+                    var tag_list = this.id.split('_');
+                    if (tag_list.length == 4) {
+                        jQuery("#r" + tag_list[3].toString()).remove();
+                        delete buildingMap["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]]
+                    } else if (tag_list.length == 3) {
+                        jQuery("#r" + tag_list[2].toString()).remove();
+                        delete buildingMap["floors"][tag_list[0]]["appliances"][tag_list[1]]
+                    } else if (tag_list.length == 2) {
+                        jQuery("#r" + tag_list[1].toString()).remove();
+                        delete buildingMap["appliances"][tag_list[0]]
+                    }
+                });
     }
 }
 
-function addFloor(f_no, floorPanel, nZones=1) {
-    var panel = floorPanel
-                    .append('div')
-                        .attr('class', 'col-sm-3 mb-4 f' + (f_no+1).toString())
-
-    panel
-        .append('label')
-            .text('F' + (f_no+1).toString())
-            .attr('class', 'col-sm-12 mx-0 px-0')
-
-    panel
-        .append('div')
-            .attr('class', 'col-sm-12 mx-0 px-0')
-        .append('input')
-            .attr('id', 'f' + (f_no+1).toString() + 'zones')
-            .attr('name', 'nzones')
-            .attr('class', 'form-control')
-            .attr('type', 'text')
-            .attr('value', nZones)
-            .attr('style', 'text-align:center;');
-}
-
-function generateTable(buildingModel, buildingData, max_nzones) {
+function generateTable(sysVariables, buildingMap, buildingModel) {
     buildingModel.selectAll('*').remove();
     buildingTable = buildingModel.append('table')
                         .attr('class', 'table table-sm table-bordered buildingMap')
     
     var tableBody = buildingTable.append('tbody');
     
-    var nfloors = Object.keys(buildingData["floors"]).length;
+    var nfloors = Object.keys(buildingMap["floors"]).length;
     for (var i=nfloors-1; i>=0; i--) {
-        floorRow = tableBody.append('tr')
-        nzones = Object.keys(buildingData["floors"]['F' + (i+1).toString()]["zones"]).length;
+        floorRow = tableBody.append('tr').attr('class', 'F' + (i+1).toString() + '_row')
+        nzones = Object.keys(buildingMap["floors"]['F' + (i+1).toString()]["zones"]).length;
         
-        var nzoneArraylen = nzones * Math.ceil(max_nzones % nzones);
+        var nzoneArraylen = nzones * Math.ceil(sysVariables['max_nzones'] % nzones);
         
         nzoneArray = new Array(nzones).fill(0);
-        for (var j=0; j<max_nzones; j++) {
+        for (var j=0; j<sysVariables['max_nzones']; j++) {
             nzoneArray[j%nzones] = nzoneArray[j%nzones] + 1;
         }
         
@@ -225,7 +291,7 @@ function generateTable(buildingModel, buildingData, max_nzones) {
                         .attr('id', 'F' + (i+1).toString() + '_Z' + (j+1).toString())
                         .text('Z' + (j+1).toString())
                     .on('click', function(data) {
-                        printApplianceList('zone', this.id, buildingData);
+                        printApplianceList('zone', this.id, buildingMap);
                     });
         }
         
@@ -236,31 +302,82 @@ function generateTable(buildingModel, buildingData, max_nzones) {
                     .attr('id', 'F' + (i+1).toString())
                     .text('F' + (i+1).toString())
                 .on('click', function(data) {
-                    printApplianceList('floor', this.id, buildingData);
+                    printApplianceList('floor', this.id, buildingMap);
                 });
     }
     
     tableBody.append('tr').append('td')
             .attr('scope', 'col')
-            .attr('colspan', max_nzones)
+            .attr('colspan', sysVariables['max_nzones'])
             .attr('class', 'building')
         .append('a')
             .attr('href', 'javascript:void(0);')
             .attr('id', 'B0')
             .text("Building Loads")
         .on('click', function(data) {
-            printApplianceList('building', this.id, buildingData);
+            printApplianceList('building', this.id, buildingMap);
+        });
+}
+
+function addFloor(f_no, floorPanel, sysVariables, buildingMap, buildingModel, nZones=1) {
+    var currentNZones = nZones;
+    if (currentNZones > sysVariables['max_nzones']) { sysVariables['max_nzones'] = currentNZones; }
+    
+    var floorID = f_no;
+            
+    var panel = floorPanel
+                    .append('div')
+                        .attr('class', 'col-lg-3 mb-4 f' + (f_no+1).toString())
+    
+    panel
+        .append('label')
+            .text('F' + (f_no+1).toString())
+            .attr('class', 'col-lg-12 mx-0 px-0')
+
+    panel
+        .append('div')
+            .attr('class', 'col-lg-12 mx-0 px-0')
+        .append('input')
+            .attr('id', 'f' + (f_no+1).toString() + 'zones')
+            .attr('name', 'nzones')
+            .attr('class', 'form-control')
+            .attr('type', 'text')
+            .attr('value', currentNZones)
+            .attr('style', 'text-align:center;')
+        .on('change', function(){
+            var floorID = 'F' + this.id.split('zones')[0].split('f')[1];
+            
+            // previous number of floors
+            var currentNZones = $("." + floorID + "_row" + " > td").length-1
+            var updatedNZones = parseInt(jQuery('#' + this.id).val());
+
+            if (updatedNZones > sysVariables['max_nzones']) { sysVariables['max_nzones'] = updatedNZones; }
+            if (updatedNZones > currentNZones) {
+                for (var i=currentNZones; i<updatedNZones; i++) {
+                    buildingMap["floors"][floorID]["zones"]['Z' + (i+1).toString()] = ["HVAC", "Lighting", "Laptops", "Monitors"];
+                }
+            } 
+            else if (updatedNZones < currentNZones) {
+                // remove floors from the end
+                for (var i=currentNZones; i>updatedNZones; i--) {
+                    delete buildingMap["floors"][floorID]["zones"]['Z' + (i).toString()];
+                }
+            }
+            generateTable(sysVariables, buildingMap, buildingModel);
         });
 }
 
 jQuery(document).ready(function(){
     var currentDiv = "buildingType";
     var dataList;
-    var defaultBuilding;
     
+    var buildingMap;
+    var sysVariables = { max_nzones: 0 };
+            
     d3.json("static/data/sensorsList.json").then(function(data){
         dataList = data;
     });
+    
     var parentDict = {
         residentialType: "buildingType",
         commercialType: "buildingType",
@@ -298,12 +415,6 @@ jQuery(document).ready(function(){
             currentDiv = "shopType";
         } else {
             currentDiv = "commercialType";
-            // jQuery('input:checkbox').prop('checked', false);
-            // jQuery('.appliancePanel').show();
-
-            // d3.select("#applianceList").selectAll("*").remove();
-            // var buildingType = jQuery('input[name="commercialType"]:checked').val();
-            // getAppliancePanel(dataList, buildingType);
         }
         
         jQuery('.commercialType').hide();
@@ -323,73 +434,8 @@ jQuery(document).ready(function(){
         jQuery('.' + currentDiv).show();
         jQuery('.configurationPanel').hide();
         jQuery('.summaryPanel').hide();
-//        jQuery('.appliancePanel').hide();
-//        jQuery('.servicePanel').hide();
-    });
-    /*
-    jQuery('input[type=radio][name=residentialType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="residentialType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
-    });
-    
-    jQuery('input[type=radio][name=officeType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="officeType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
-    });
-    
-    jQuery('input[type=radio][name=healthcareType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="healthcareType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
-    });
-    
-    jQuery('input[type=radio][name=schoolType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="schoolType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
-    });
-    
-    jQuery('input[type=radio][name=hotelType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="hotelType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
-    });
-    
-    jQuery('input[type=radio][name=restaurantType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="restaurantType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
     });
 
-    jQuery('input[type=radio][name=shopType]').on('change', function(){
-        // jQuery('input:checkbox').prop('checked', false);
-        // jQuery('.appliancePanel').show();
-        
-        // d3.select("#applianceList").selectAll("*").remove();
-        // var buildingType = jQuery('input[name="shopType"]:checked').val();
-        // getAppliancePanel(dataList, buildingType);
-    });
-    */
     jQuery('.leafRadio').on('change', function(){
         jQuery('input:checkbox').prop('checked', false);
         
@@ -400,26 +446,25 @@ jQuery(document).ready(function(){
             d3.select('.floorList').selectAll('*').remove();
     
             // select building
-            defaultBuilding = data["mra"];
+            buildingMap = data["mra"];
+            buildingDiv = d3.select('.buildingModel')
             
-            // get number of floors from the default building file
-            var nfloors = Object.keys(defaultBuilding["floors"]).length;
+            // get number of floors from the default building file and set in the configuration panel
+            var nfloors = Object.keys(buildingMap["floors"]).length;
             jQuery('#nfloors').val(nfloors);
             
-            // add floors from the default file
-            var max_nzones = 0
+            // add floors to floor list in the configuration panel
+            var floorPanel = d3.select('.floorList');
             for (var i=0; i<nfloors; i++) {
-                var floorPanel = d3.select('.floorList');
-                var nzones = Object.keys(defaultBuilding["floors"]["F" + (i+1).toString()]["zones"]).length;
-                if (nzones > max_nzones) { max_nzones = nzones; }
-                addFloor(i, floorPanel, nzones);
+                var nZones = Object.keys(buildingMap["floors"]['F'+(i+1).toString()]["zones"]).length;
+                addFloor(i, floorPanel, sysVariables, buildingMap, buildingDiv, nZones);
             }
             
             // show configuration panel
             jQuery('.configurationPanel').show();
             
-            buildingModel = d3.select('.buildingModel')
-            generateTable(buildingModel, defaultBuilding, max_nzones);
+            // update summary table
+            generateTable(sysVariables, buildingMap, buildingDiv);
             
             // show summary panel
             jQuery('.summaryPanel').show();
@@ -428,64 +473,49 @@ jQuery(document).ready(function(){
             jQuery('input[type=text][name=nfloors]').on('change', function(){
                 
                 // previous number of floors
-                prevNFloors = $(".floorList > div").length
+                var currentNFloors = $(".floorList > div").length
                 
                 // update number of floors
-                nfloors = jQuery('input[type=text][name=nfloors]').val();
+                var updatedNFloors = jQuery('input[type=text][name=nfloors]').val();
                 
                 // if now the number of floors is more
-                if (nfloors > prevNFloors) {
+                if (updatedNFloors > currentNFloors) {
+                    
                     // add new floors in the building
-                    for (var i=prevNFloors; i<nfloors; i++) {
+                    for (var i=currentNFloors; i<updatedNFloors; i++) {
                         
                         // add new floor
-                        var floorPanel = d3.select('.floorList');
-                        addFloor(i, floorPanel);
+                        addFloor(i, floorPanel, sysVariables, buildingMap, buildingDiv);
                         
                         // update building configuration json
-                        defaultBuilding["floors"]['F' + (i+1).toString()] = {};
-                        defaultBuilding["floors"]['F' + (i+1).toString()]["appliances"] = ["HVAC", "Lighting", "Laptops", "Monitors"];
-                        defaultBuilding["floors"]['F' + (i+1).toString()]["zones"] = {"Z1": ["HVAC", "Lighting", "Laptops", "Monitors"]};
+                        buildingMap["floors"]['F' + (i+1).toString()] = {};
+                        buildingMap["floors"]['F' + (i+1).toString()]["appliances"] = ["HVAC", "Lighting", "Laptops", "Monitors"];
+                        buildingMap["floors"]['F' + (i+1).toString()]["zones"] = {"Z1": ["HVAC", "Lighting", "Laptops", "Monitors"]};
                     }
                 } // if now the number of floors is less
-                else if (nfloors < prevNFloors) {
+                else if (updatedNFloors < currentNFloors) {
                     // remove floors from the end
-                    for (var i=prevNFloors; i>nfloors; i--) {
+                    for (var i=currentNFloors; i>updatedNFloors; i--) {
                         
                         // remove floor
                         d3.select('.f' + i.toString()).remove();
                         
                         // update json
-                        delete defaultBuilding["floors"]['F' + (i).toString()];
+                        delete buildingMap["floors"]['F' + (i).toString()];
+                    }
+                    
+                    // update max_nzones
+                    sysVariables['max_nzones'] = 0
+                    for (var i=0; i<nfloors; i++) {
+                        
+                        var nZones = Object.keys(buildingMap["floors"]['F' + (i+1).toString()]["zones"]).length
+                        if (nZones > sysVariables['max_nzones']) {
+                            sysVariables['max_nzones'] = nZones;
+                        }
                     }
                 }
-                
                 // build summary table
-                generateTable(buildingModel, defaultBuilding, max_nzones);
-                console.log(defaultBuilding);
-            });
-            
-            // add event on change in value of text box
-            jQuery('input[type=text][name=nzones]').on('change', function(){
-                var floorID = this.id.split('zones')[0].toUpperCase();
-                var previousNZones = Object.keys(defaultBuilding["floors"][floorID]).length;
-                var nzonesNow = jQuery('#' + this.id).val();
-                
-                if (nzonesNow > max_nzones) { max_nzones = nzonesNow; }
-                if (nzonesNow > previousNZones) {
-                    for (var i=previousNZones; i<nzonesNow; i++) {
-                        defaultBuilding["floors"][floorID]["zones"]['Z' + (i+1).toString()] = ["HVAC", "Lighting", "Laptops", "Monitors"];
-                    }
-                } 
-                else if (nzonesNow < previousNZones) {
-                    // remove floors from the end
-                    for (var i=previousNZones; i>nzonesNow; i--) {
-                        delete defaultBuilding["floors"][floorID]["zones"]['Z' + (i).toString()];
-                    }
-                }
-                
-                // build summary table
-                generateTable(buildingModel, defaultBuilding, max_nzones);
+                generateTable(sysVariables, buildingMap, buildingDiv);
             });
         });
     });

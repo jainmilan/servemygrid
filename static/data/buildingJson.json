@@ -1,49 +1,138 @@
 {
 	"mra":
+	{
+		"appliances": 
 		{
-			"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"],
-			"floors": 
+			"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+			"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+			"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+			"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+		},
+		"floors": 
+		{
+			"F1": 
 			{
-				"F1": 
+				"appliances": 
 				{
-					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
-					"zones":
-					{
-						"Z1":["HVAC", "Lighting", "Desktops", "Laptops"]
-					}	
-				},
-				"F2":
+					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+				}, 
+				"zones":
 				{
-					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
-					"zones":
+					"Z1": 
 					{
-						"Z1":["HVAC", "Lighting", "Laptops", "Monitors"],
-						"Z2":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
-						"Z3":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
-						"Z4":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
-						"Z5":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"]
-					}
-				},
-				"F3":
-				{
-					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
-					"zones":
-					{
-						"Z1":["HVAC", "Lighting", "Laptops", "Monitors"],
-						"Z2":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"],
-						"Z3":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"]
-					}
-				},
-				"F4":
-				{
-					"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
-					"zones":
-					{
-						"Z1":["HVAC", "Lighting", "Laptops", "Monitors"],
-						"Z2":["HVAC", "Monitors", "Refrigerators", "Kitchen Vents"]
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
 					}
 				}	
-			}
-			
+			},
+			"F2":
+			{
+				"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
+				"zones":
+				{
+					"Z1": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z2": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z3": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z4": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z5": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					}
+				}
+			},
+			"F3":
+			{
+				"appliances": 
+				{
+					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+				}, 
+				"zones":
+				{
+					"Z1": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z2": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z3": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					}
+				}
+			},
+			"F4":
+			{
+				"appliances": 
+				{
+					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+				}, 
+				"zones":
+				{
+					"Z1": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					},
+					"Z2": 
+					{
+						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					}
+				}
+			}	
 		}
+	}
 }
