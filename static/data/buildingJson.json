@@ -32,7 +32,13 @@
 			},
 			"F2":
 			{
-				"appliances": ["HVAC", "Lighting", "Desktops", "Laptops"], 
+				"appliances": 
+				{
+					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
+					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+				}, 
 				"zones":
 				{
 					"Z1": 

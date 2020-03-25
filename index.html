@@ -12,40 +12,25 @@
     <script type="text/javascript" src="static/js/d3/d3.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" onresize="runModel()" onload="runModel()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand ml-4" href="index.html"><span class="mb-0 h1">Serve <font color="#32CD32">my</font>Grid</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!--
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="nav navbar-nav ml-auto mr-5 pr-5">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">PTACs <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="lighting.html">Lighting</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="appliances.html">Appliances</a>
-                </li>
-            </ul>
-        </div>
-        -->
     </nav>
     <div class="container-fluid mx-auto">       
         <div class="row mainbox" id="input">
-            <div class="col-sm-3 buildingPanel">
+            <div class="col-sm-3 panel">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Building Selection Panel</legend>
-                    <div class="backButton col-sm-12 hidden">
-                        <button type="button" id="backButton" class="btn btn-default back"></button>
+                    <div class="back-button-div col-sm-12 hidden">
+                        <button type="button" id="back-button" class="btn btn-default back-button"></button>
                     </div>
-                    <div class="col-sm-12 form-group selectionPanel buildingType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="buildingType" id="residential" value="residential">
+                    <div class="col-sm-12 form-group selection-panel building-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="building-type" id="residential" value="residential">
                                 <label class="form-check-label" for="residential">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/house.png" alt="">
@@ -53,8 +38,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="buildingType" id="commercial" value="commercial">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="building-type" id="commercial" value="commercial">
                                 <label class="form-check-label" for="commercial">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/skyscraper.png" alt="">
@@ -64,10 +49,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel residentialType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="residentialType" id="mra" value="mra">
+                    <div class="col-sm-12 form-group hidden selection-panel residential-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="residential-type" id="mra" value="mra">
                                 <label class="form-check-label leaf" for="mra">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/mra.png" alt="">
@@ -75,8 +60,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="residentialType" id="hra" value="hra">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="residential-type" id="hra" value="hra">
                                 <label class="form-check-label leaf" for="hra">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/hra.png" alt="">
@@ -86,10 +71,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel commercialType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="commercialType" id="office" value="office">
+                    <div class="col-sm-12 form-group hidden selection-panel commercial-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="commercial-type" id="office" value="office">
                                 <label class="form-check-label" for="office">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/work.png" alt="">
@@ -97,8 +82,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="commercialType" id="healthcare" value="healthcare">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="commercial-type" id="healthcare" value="healthcare">
                                 <label class="form-check-label" for="healthcare">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/health.png" alt="">
@@ -106,8 +91,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="commercialType" id="school" value="school">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="commercial-type" id="school" value="school">
                                 <label class="form-check-label" for="school">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/school.png" alt="">
@@ -115,8 +100,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="commercialType" id="hotel" value="hotel">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="commercial-type" id="hotel" value="hotel">
                                 <label class="form-check-label" for="hotel">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/hotel.png" alt="">
@@ -124,8 +109,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="commercialType" id="restaurant" value="restaurant">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="commercial-type" id="restaurant" value="restaurant">
                                 <label class="form-check-label" for="restaurant">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/restaurant.png" alt="">
@@ -133,8 +118,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input" type="radio" name="commercialType" id="shop" value="shop">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input" type="radio" name="commercial-type" id="shop" value="shop">
                                 <label class="form-check-label" for="shop">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/shop.png" alt="">
@@ -142,8 +127,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="commercialType" id="warehouse" value="warehouse">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="commercial-type" id="warehouse" value="warehouse">
                                 <label class="form-check-label leaf" for="warehouse">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/warehouse.png" alt="">
@@ -153,10 +138,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel officeType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="officeType" id="smallOff" value="smallOff">
+                    <div class="col-sm-12 form-group hidden selection-panel office-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="office-type" id="smallOff" value="smallOff">
                                 <label class="form-check-label leaf" for="smallOff">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/smallOff.png" alt="">
@@ -164,8 +149,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="officeType" id="medOff" value="medOff">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="office-type" id="medOff" value="medOff">
                                 <label class="form-check-label leaf" for="medOff">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/medOff.png" alt="">
@@ -173,8 +158,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="officeType" id="largeOff" value="largeOff">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="office-type" id="largeOff" value="largeOff">
                                 <label class="form-check-label leaf" for="largeOff">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/largeOff.png" alt="">
@@ -184,10 +169,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel healthcareType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="healthcareType" id="outPatient" value="outPatient">
+                    <div class="col-sm-12 form-group hidden selection-panel healthcare-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="healthcare-type" id="outPatient" value="outPatient">
                                 <label class="form-check-label leaf" for="outPatient">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/outPatient.png" alt="">
@@ -195,8 +180,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="healthcareType" id="hospital" value="hospital">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="healthcare-type" id="hospital" value="hospital">
                                 <label class="form-check-label leaf" for="hospital">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/hospital.png" alt="">
@@ -206,10 +191,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel schoolType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="schoolType" id="primary" value="primary">
+                    <div class="col-sm-12 form-group hidden selection-panel school-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="school-type" id="primary" value="primary">
                                 <label class="form-check-label leaf" for="primary">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/primary.png" alt="">
@@ -217,8 +202,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="schoolType" id="secondary" value="secondary">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="school-type" id="secondary" value="secondary">
                                 <label class="form-check-label leaf" for="secondary">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/secondary.png" alt="">
@@ -228,10 +213,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel hotelType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="hotelType" id="smallHotel" value="smallHotel">
+                    <div class="col-sm-12 form-group hidden selection-panel hotel-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="hotel-type" id="smallHotel" value="smallHotel">
                                 <label class="form-check-label leaf" for="smallHotel">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/smallHotel.png" alt="">
@@ -239,8 +224,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="hotelType" id="largeHotel" value="largeHotel">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="hotel-type" id="largeHotel" value="largeHotel">
                                 <label class="form-check-label leaf" for="largeHotel">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/largeHotel.png" alt="">
@@ -250,10 +235,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel restaurantType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="restaurantType" id="quickService" value="quickService">
+                    <div class="col-sm-12 form-group hidden selection-panel restaurant-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="restaurant-type" id="quickService" value="quickService">
                                 <label class="form-check-label leaf" for="quickService">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/quickService.png" alt="">
@@ -261,8 +246,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="restaurantType" id="fullService" value="fullService">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="restaurant-type" id="fullService" value="fullService">
                                 <label class="form-check-label leaf" for="fullService">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/fullService.png" alt="">
@@ -272,10 +257,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 form-group hidden selectionPanel shopType">
-                        <div class="row typeRow">
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="shopType" id="retail" value="retail">
+                    <div class="col-sm-12 form-group hidden selection-panel shop-type">
+                        <div class="row type-row">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="shop-type" id="retail" value="retail">
                                 <label class="form-check-label leaf" for="retail">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/retail.png" alt="">
@@ -283,8 +268,8 @@
                                     </figure>
                                 </label>
                             </div>
-                            <div class="col-sm-5 form-check form-check-inline selectionBox">
-                                <input class="form-check-input leafRadio" type="radio" name="shopType" id="mall" value="mall">
+                            <div class="col-sm-5 form-check form-check-inline selection-box">
+                                <input class="form-check-input leafRadio" type="radio" name="shop-type" id="mall" value="mall">
                                 <label class="form-check-label leaf" for="mall">
                                     <figure>
                                         <img class="label-image" src="static/images/icons/mall.png" alt="">
@@ -296,60 +281,50 @@
                     </div>
                 </fieldset>
             </div>
-            <div class="col-sm-3 hidden configurationPanel">
+            <div class="col-sm-3 hidden panel configuration-panel">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Configuration Panel</legend>
-                    <div class="col-sm-12 form-group">
+                    <div class="col-sm-12 form-group configuration-form">
                         <form>
-                            <div class="form-group row mb-4">
-                                <label for="nfloors" class="col-sm-5 col-form-label">Number of Floors: </label>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" style="text-align:center;" id="nfloors" name="nfloors">
+                            <div class="row form-group">
+                                <label for="nfloors" class="col-sm-4 col-form-label">Number of Floors: </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="nfloors" name="nfloors">
                                 </div>
                             </div>
-                            <div class="form-group row floorPanel">
-                                <label for="floorWiseZones" class="col-sm-12 col-form-label mb-2">Number of Zones (Floor Wise)</label>
-                                <div class="col-sm-12">
-                                    <div class="row floorList">
-                                    
-                                    </div>
+                            <div class="row form-group floor-panel">
+                                <label for="floor-wise-zones" class="col-sm-12 col-form-label">Number of Zones (Floor Wise)</label>
+                                <div class="col-sm-12 floor-wise">
+                                    <div class="row floor-list"></div>
                                 </div>
                             </div>
+                            <!--
                             <div class="form-group row mt-3">
                                 <div class="col-sm-6">
                                     <input type="submit" class="btn btn-primary mb-2" name="scratch_button" id="scratch_button" value="Configure Building" />
                                 </div>
                             </div>
+                            -->
                         </form>
                     </div>
                 </fieldset>
             </div>
-            <div class="col-sm-5 hidden summaryPanel">
+            <div class="col-sm-5 hidden panel summary-panel">
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Summary Panel</legend>
-                    <div class="row px-2 mr-2">
-                        <div class="col-sm-5 px-2">
-                            <div class="row justify-content-center mt-4 buildingModel">
-                            </div>
-                            <div class="row justify-content-center mt-4">
-                                <div class="col-sm-6">
-                                    <input type="submit" class="btn btn-primary mb-2" name="learn_model" id="learn_model" value="Build Model" />
-                                </div>
-                            </div>
+                    <div class="row building-box-row">
+                        <div class="col-sm-6 justify-content-center building-box">
                         </div>
-                        <div class="col-sm-6 listOfAppliances ml-4">
+                        <div class="col-sm-5 list-of-appliances">
+                        </div>
+                    </div>
+                    <div class="row building-box-buttons">
+                        <div class="col-sm-12 building-box-buttons">
+                            <input type="submit" class="btn btn-primary" name="save_building" id="save_building" value="Save Building" />
+                            <input type="submit" class="btn btn-primary" name="learn_model" id="learn_model" value="Build Model" />
                         </div>
                     </div>
                 </fieldset>
-            </div>
-            <div class="col-sm-3 hidden appliancePanel">
-                <fieldset class="scheduler-border">
-                    <legend class="scheduler-border">Appliance Selection Panel</legend>
-                    <div class="col-sm-12 form-group selectionPanel" id="applianceList">
-                    </div>
-                </fieldset>    
-            </div> 
-            <div class="col-sm-5 hidden servicePanel">    
             </div>
         </div>
         <footer class="footer">
@@ -372,7 +347,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="streamListLongTitle">Data Streams</h5>
+                        <h5 class="modal-title" id="stream-title">Data Streams</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

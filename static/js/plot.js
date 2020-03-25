@@ -1,152 +1,9 @@
-function updateTick(appCheck, appVal) {
-    if (appCheck) {
-        var tr = d3.selectAll('.tbody')
-                    .append('tr')
-                        .attr('class', 'tableRow')
-                        .attr('id', appVal + 'Row');
-
-        tr.append('th')
-            .attr('scope', 'row')
-          .append('img')
-            .attr('class', 'row-image')
-            .attr('src', 'static/images/icons/' + appVal + '.png');
-
-        tr.selectAll('.tableRow')
-            .data([...Array(4)].map(() => Math.floor(Math.random()*9)))
-            .enter()
-          .append('td')
-            .attr('class', 'cell')
-            .text(function(d){return d;});
-    } else {
-        d3.select('#' + appVal + 'Row').remove();
-    }    
-}
-
-function plotApplicationBox(appType, streamList) {
-    var selectionBox = d3.select('#applianceList')
-                        .append('div')
-                            .attr('class', 'col-md-5 form-check form-check-inline selectionBox');
-
-    var imageBox = selectionBox
-                    .append('div')
-                        .attr('class', 'col-md-8 imageBox');
-
-    imageBox.append('input')
-        .attr('class', 'form-check-input')
-        .attr('type', 'checkbox')
-        .attr('name', 'applianceType')
-        .attr('id', appType)
-        .attr('value', appType)
-        .on('change', function(){
-            updateTick(jQuery(this).is(':checked'), jQuery(this).val()); 
-        });
-
-    var figure = imageBox.append('label')
-                            .attr('class', 'form-check-label leaf')
-                            .attr('for', appType)
-                        .append('figure');
-    figure.append('img')
-            .attr('class', 'label-image')
-            .attr('src', 'static/images/icons/' + appType + '.png');
-
-    figure.append('figcaption')
-            .attr('class', 'tag')
-            .text(function(){
-                var output = "Lab Equipment";
-                if (appType == "hvac") {
-                    output = "HVAC";
-                } else if (appType == "lighting") {
-                    output = "Lighting";
-                } else if (appType == "desktops") {
-                    output = "Desktops";
-                } else if (appType == "laptops") {
-                    output = "Laptops";
-                } else if (appType == "monitors") {
-                    output = "Monitors";
-                } else if (appType == "refrigerators") {
-                    output = "Refrigerators";
-                } else if (appType == "kitchenVent") {
-                    output = "Kitchen Ventillation";
-                } else if (appType == "videoDisplay") {
-                    output = "Video Display";
-                } else if (appType == "securitySystem") {
-                    output = "Security System";
-                } else if (appType == "medImaging") {
-                    output = "Imaging Equipment";
-                }
-                return output;
-            });
-
-    var iconBox = selectionBox
-                    .append('div')
-                        .attr('class', 'col-md-4 iconBox');
-
-    var linkBox = iconBox
-                    .append('div')
-                        .attr('class', 'row linkIcon');
-    linkBox.append('img')
-            .attr('class', 'icon-image linkClass ' + appType + 'Link')
-            .attr('src', 'static/images/icons/link.png')
-            .on('click', function(){
-                showStreams(appType, streamList);
-            });
-
-    var uploadBox = iconBox
-                    .append('div')
-                        .attr('class', 'row uploadIcon');
-    uploadBox.append('img')
-            .attr('class', 'icon-image uploadClass ' + appType + 'Upload')
-            .attr('src', 'static/images/icons/upload.png');
-}
-
-function getTable(buildingType) {
-    var serviceTable = d3.select('.servicePanel')
-                            .append('table')
-                                .attr('class', 'table');
-    var serviceTableHead = serviceTable
-                            .append('thead')
-                                .attr('class', 'thead-light')
-                            .append('tr');
-    
-    serviceTableHead
-        .append('th')
-            .attr('scope', 'col')
-            .attr('class', 'imageRow')
-        .append('img')
-            .attr('class', 'table-image')
-            .attr('src', 'static/images/icons/' + buildingType + '.png');
-    
-    serviceTableHead
-        .selectAll('th.headRow')
-        .data(['Curtailment', 'Frequency Regulation', 'Ramping', 'Reactive Power Control'])
-            .enter()
-        .append('th')
-            .attr('class', 'headRow')
-            .attr('scope', 'col')
-            .text(function(d){return d;});
-    
-    var serviceTableBody = serviceTable
-                            .append('tbody')
-                                .attr('class', 'tbody'); 
-}
-
-function getAppliancePanel(dataList, buildingType) {
-    dataList[0][buildingType].forEach(function(d){
-        var appType = Object.keys(d)[0];
-        plotApplicationBox(appType, d[appType]['streams']);                                  
-    });
-    
-    jQuery('.servicePanel').show();
-    d3.select(".servicePanel").selectAll("*").remove();
-    getTable(buildingType);
-}
-
 function showStreams(streamInfo, streamList, buildingMap) {
     $('#streamList').modal('show');
     d3.select(".modal-body").selectAll("*").remove();
     
     var streamTable = d3.select(".modal-body").append('table')
-                            .attr('class', 'table table-sm table-bordered streamTable')
+                            .attr('class', 'table table-sm table-bordered stream-table')
     
     var streamBody = streamTable.append('tbody')
     
@@ -176,9 +33,7 @@ function showStreams(streamInfo, streamList, buildingMap) {
                     .attr('style', 'cursor:pointer;')
                     .attr('src', 'static/images/icons/cancel.png')
                 .on('click', function(){
-                    console.log(this.id);
                     var tag_list = this.id.split('_');
-                    console.log(tag_list);
                     if (tag_list.length == 5) {
                         jQuery("#sr" + tag_list[4].toString()).remove();
                         delete buildingMap["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]][tag_list[4]]
@@ -212,12 +67,12 @@ function printApplianceList(iType, id, buildingMap) {
         appliances = buildingMap["floors"][id.split('_')[0]]["zones"][id.split('_')[1]];
     }
     
-    var applianceDiv = d3.select(".listOfAppliances");
+    var applianceDiv = d3.select(".list-of-appliances");
     applianceDiv.selectAll("*").remove();
     
     var applianceTable = applianceDiv.append('table')
-                            .attr('class', 'table table-sm table-bordered applianceList mx-2')
-                            .attr('id', 'applianceList')
+                            .attr('class', 'table table-sm table-bordered appliance-table')
+                            .attr('id', 'appliance-table')
     
     var tableHead = applianceTable.append('thead').append('tr').append('th')
             .attr('scope', 'col')
@@ -266,7 +121,7 @@ function printApplianceList(iType, id, buildingMap) {
 function generateTable(sysVariables, buildingMap, buildingModel) {
     buildingModel.selectAll('*').remove();
     buildingTable = buildingModel.append('table')
-                        .attr('class', 'table table-sm table-bordered buildingMap')
+                        .attr('class', 'table table-sm table-bordered building-model')
     
     var tableBody = buildingTable.append('tbody');
     
@@ -285,7 +140,7 @@ function generateTable(sysVariables, buildingMap, buildingModel) {
         for (var j=0; j<nzones; j++) {
             floorRow.append('td')
                         .attr('colspan', nzoneArray[j])
-                        .attr('class', 'zones')
+                        .attr('class', 'zone-block clickable-link')
                     .append('a')
                         .attr('href', 'javascript:void(0);')
                         .attr('id', 'F' + (i+1).toString() + '_Z' + (j+1).toString())
@@ -296,7 +151,7 @@ function generateTable(sysVariables, buildingMap, buildingModel) {
         }
         
         floorRow.append('td')
-                    .attr('class', 'floors')
+                    .attr('class', 'floor-block clickable-link')
                 .append('a')
                     .attr('href', 'javascript:void(0);')
                     .attr('id', 'F' + (i+1).toString())
@@ -309,7 +164,7 @@ function generateTable(sysVariables, buildingMap, buildingModel) {
     tableBody.append('tr').append('td')
             .attr('scope', 'col')
             .attr('colspan', sysVariables['max_nzones'])
-            .attr('class', 'building')
+            .attr('class', 'building-block clickable-link')
         .append('a')
             .attr('href', 'javascript:void(0);')
             .attr('id', 'B0')
@@ -327,20 +182,20 @@ function addFloor(f_no, floorPanel, sysVariables, buildingMap, buildingModel, nZ
             
     var panel = floorPanel
                     .append('div')
-                        .attr('class', 'col-lg-3 mb-4 f' + (f_no+1).toString())
+                        .attr('class', 'col-sm-3 floor-div f' + (f_no+1).toString())
     
     panel
         .append('label')
             .text('F' + (f_no+1).toString())
-            .attr('class', 'col-lg-12 mx-0 px-0')
+            .attr('class', 'col-sm-12')
 
     panel
         .append('div')
-            .attr('class', 'col-lg-12 mx-0 px-0')
+            .attr('class', 'col-sm-12 floor-input')
         .append('input')
             .attr('id', 'f' + (f_no+1).toString() + 'zones')
             .attr('name', 'nzones')
-            .attr('class', 'form-control')
+            .attr('class', 'form-control floor-input')
             .attr('type', 'text')
             .attr('value', currentNZones)
             .attr('style', 'text-align:center;')
@@ -367,8 +222,13 @@ function addFloor(f_no, floorPanel, sysVariables, buildingMap, buildingModel, nZ
         });
 }
 
-jQuery(document).ready(function(){
-    var currentDiv = "buildingType";
+jQuery('#learn_model').on('click', function(){
+    window.location.href = 'model.html';
+})
+
+// jQuery(document).ready(function(){
+function runModel() {
+    var currentDiv = "building-type";
     var dataList;
     
     var buildingMap;
@@ -379,61 +239,61 @@ jQuery(document).ready(function(){
     });
     
     var parentDict = {
-        residentialType: "buildingType",
-        commercialType: "buildingType",
-        officeType: "commercialType",
-        healthcareType: "commercialType",
-        schoolType: "commercialType",
-        hotelType: "commercialType",
-        restaurantType: "commercialType",
-        shopType: "commercialType"
+        "residential-type": "building-type",
+        "commercial-type": "building-type",
+        "office-type": "commercial-type",
+        "healthcare-type": "commercial-type",
+        "school-type": "commercial-type",
+        "hotel-type": "commercial-type",
+        "restaurant-type": "commercial-type",
+        "shop-type": "commercial-type"
     };
     
-    jQuery('input[type=radio][name=buildingType]').on('change', function(){
+    jQuery('input[type=radio][name=building-type]').on('change', function(){
         if(this.value == 'residential') {
-            currentDiv = "residentialType";
+            currentDiv = "residential-type";
         } else {
-            currentDiv = "commercialType";
+            currentDiv = "commercial-type";
         }
-        jQuery('.buildingType').hide();
-        jQuery('.backButton').show();
+        jQuery('.building-type').hide();
+        jQuery('.back-button-div').show();
         jQuery('.' + currentDiv).show();
     });
     
-    jQuery('input[type=radio][name=commercialType]').on('change', function(){
+    jQuery('input[type=radio][name=commercial-type]').on('change', function(){
         if(this.value == 'office') {
-            currentDiv = "officeType";
+            currentDiv = "office-type";
         } else if (this.value == 'healthcare') {
-            currentDiv = "healthcareType";
+            currentDiv = "healthcare-type";
         } else if (this.value == 'school') {
-            currentDiv = "schoolType";
+            currentDiv = "school-type";
         } else if (this.value == 'hotel') {
-            currentDiv = "hotelType";
+            currentDiv = "hotel-type";
         } else if (this.value == 'restaurant') {
-            currentDiv = "restaurantType";
+            currentDiv = "restaurant-type";
         } else if (this.value == 'shop') {
-            currentDiv = "shopType";
+            currentDiv = "shop-type";
         } else {
-            currentDiv = "commercialType";
+            currentDiv = "commercial-type";
         }
         
-        jQuery('.commercialType').hide();
+        jQuery('.commercial-type').hide();
         jQuery('.' + currentDiv).show();
     });
     
-    jQuery('#backButton').on('click', function(){
+    jQuery('#back-button').on('click', function(){
         jQuery('input:checkbox').prop('checked', false);
         jQuery('input:radio').prop('checked', false);
         
         jQuery('.' + currentDiv).hide();
         currentDiv = parentDict[currentDiv];
         
-        if (currentDiv == "buildingType") {
-            jQuery('.backButton').hide();
+        if (currentDiv == "building-type") {
+            jQuery('.back-button-div').hide();
         }
         jQuery('.' + currentDiv).show();
-        jQuery('.configurationPanel').hide();
-        jQuery('.summaryPanel').hide();
+        jQuery('.configuration-panel').hide();
+        jQuery('.summary-panel').hide();
     });
 
     jQuery('.leafRadio').on('change', function(){
@@ -443,37 +303,37 @@ jQuery(document).ready(function(){
         d3.json("static/data/buildingJson.json").then(function(data){
             
             // remove previous list
-            d3.select('.floorList').selectAll('*').remove();
+            d3.select('.floor-list').selectAll('*').remove();
     
             // select building
             buildingMap = data["mra"];
-            buildingDiv = d3.select('.buildingModel')
+            buildingDiv = d3.select('.building-box')
             
             // get number of floors from the default building file and set in the configuration panel
             var nfloors = Object.keys(buildingMap["floors"]).length;
             jQuery('#nfloors').val(nfloors);
             
             // add floors to floor list in the configuration panel
-            var floorPanel = d3.select('.floorList');
+            var floorPanel = d3.select('.floor-list');
             for (var i=0; i<nfloors; i++) {
                 var nZones = Object.keys(buildingMap["floors"]['F'+(i+1).toString()]["zones"]).length;
                 addFloor(i, floorPanel, sysVariables, buildingMap, buildingDiv, nZones);
             }
             
             // show configuration panel
-            jQuery('.configurationPanel').show();
+            jQuery('.configuration-panel').show();
             
             // update summary table
             generateTable(sysVariables, buildingMap, buildingDiv);
             
             // show summary panel
-            jQuery('.summaryPanel').show();
+            jQuery('.summary-panel').show();
             
             // add event on change in value of text box
             jQuery('input[type=text][name=nfloors]').on('change', function(){
                 
                 // previous number of floors
-                var currentNFloors = $(".floorList > div").length
+                var currentNFloors = $(".floor-list > div").length
                 
                 // update number of floors
                 var updatedNFloors = jQuery('input[type=text][name=nfloors]').val();
@@ -519,8 +379,236 @@ jQuery(document).ready(function(){
             });
         });
     });
+}
+// });
+
+function addService(key) {
+    var selectionBox = d3.select('#select-service')
+                            .append('div')
+                                .attr('class', 'col-md-3 form-check form-check-inline selection-box');
+
+    selectionBox.append('input')
+        .attr('class', 'form-check-input')
+        .attr('type', 'checkbox')
+        .attr('name', 'applianceType')
+        .attr('id', key)
+        .attr('value', key);
+
+    var figure = selectionBox.append('label')
+                                .attr('class', 'form-check-label leaf')
+                                .attr('for', key)
+                            .append('figure');
+    
+    figure.append('img')
+            .attr('class', 'label-image')
+            .attr('src', 'static/images/icons/monitors.png');
+}
+
+function showGridServices() {
+    services =  {
+                    'curtailment': {"label": "Curtailment", "ranks": {"HVAC":1, "Lighting":2, "Desktops":3, "Laptops":4}}, 
+                    'frequencyRegulation': {"label": "Frequency Regulation", "ranks": {"HVAC":2, "Lighting":3, "Desktops":1, "Laptops":4}}, 
+                    'ramping': {"label": "Ramping", "ranks": {"HVAC":1, "Lighting":4, "Desktops":3, "Laptops":2}}, 
+                    'reactivePowerControl': {"label": "Reactive Power Control", "ranks": {"HVAC":4, "Lighting":1, "Desktops":3, "Laptops":2}}
+                }
+    
+    for (var i=0; i<4; i++) {
+        var key = Object.keys(services)[i];
+        addService(key);
+    }
+}
+
+function addGridService(tag, label, applianceRanking) {
+    var dragging = {};
+    
+    var div = d3.select(".grid-services").append('div').attr('class', 'col-sm-3 ' + tag)
+    var margin = {top: 0, right: 0, bottom: 20, left: 0},
+        actualWidth = +d3.select('.' + tag).style('width').slice(0, -2)
+        actualWidth = actualWidth * 0.65
+        width = actualWidth - margin.left - margin.right,
+        height = 2*actualWidth - margin.top - margin.bottom;
+
+    var textDiv = d3.select(".service-labels").append('div')
+                        .attr('class', 'col-sm-3 text-wrap text-left mx-auto')
+                        .text(label)
+                        .style("font-size", function(d) { return width * 0.17 + "px"; })
+        
+    var svg = div
+              .append("svg")
+                .attr("class", 'mx-auto')
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .style("margin-left", margin.left + "px")
+              .append("g")
+                .attr("id", "matrix")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+    var applianceMatrix = [], 
+        appliances = Object.keys(applianceRanking),
+        n = appliances.length;
+    
+    appliances.forEach(function(app, i){
+        applianceMatrix[i] = {x: i, y: +applianceRanking[app]-1, z: app};
+    });
+    
+    var y = d3.scaleBand().range([0, height], 0, 1),
+        c = d3.scaleOrdinal(d3.schemeCategory10).domain(d3.range(n));
+    
+    // Default order
+  	var orders = {
+    	appliance: d3.range(n).sort(function(a, b) { return d3.ascending(applianceMatrix[a].y, applianceMatrix[b].y); })
+  	};
+    
+    // The default sort order.
+  	y.domain(orders.appliance);
+  	
+    svg.append("rect")
+      .attr("class", "background")
+      .attr("width", width)
+      .attr("height", height);
+    
+    
+    var row = svg.selectAll("." + tag + "G")
+                    .data(applianceMatrix)
+                        .enter()
+                    .append("g")
+                        .attr("class", tag + "G")
+                        .attr("transform", function(d, i) { 
+                            return "translate(0," + y(d.y) + ")"; 
+                        })
+                    
+    row.append("rect")
+        .attr("x", 0)
+        .attr("width", width * 0.75)
+        .attr("height", y.bandwidth())
+        .attr("fill", 'None')
+        .style("stroke", function(d) { 
+            return c(d.y); 
+        })
+        .style("stroke-width", 2);
+    
+    row.append("image")
+        .attr("id", tag + "Image")
+        .attr("x", width * 0.8)
+        .attr("y", y.bandwidth() * 0.23)
+        .attr("width", width * 0.12)
+        .attr("height", y.bandwidth())
+        .attr('class', 'row-simage')
+        .style('cursor', 'pointer')
+        .attr('xlink:href', 'static/images/icons/cancel.png');
+    
+    row.append("rect")
+        .attr("x", width * 0.75)
+        .attr("width", width * 0.25)
+        .attr("height", y.bandwidth())
+        .attr("fill", 'None')
+        .style("stroke", function(d) { 
+            return c(d.y); 
+        })
+        .style("stroke-width", 0)
+        .style("padding-top", 4)
+        .attr("fill", "url(#" + tag + "Image)");
+    
+    row.append("text")
+        .attr("class", tag + "Rect")
+        .attr("x", width * 0.05)
+        .attr("dy", y.bandwidth() * 0.6)
+        .style("font-size", function(d) { return y.bandwidth() * 0.35 + "px"; })
+        .style("cursor", "pointer")
+        .text(function(d) { 
+            return appliances[d.y]; 
+        });
+    
+    var drag_behavior = d3.drag();
+	var trigger;
+    
+    d3.selectAll("." + tag + "G")
+        .call(d3.drag()
+                .subject(function(d) { 
+                    return {y: y(d.y)}; 
+                })
+                .on("start", function(d) {
+                    trigger = d3.event.sourceEvent.target.className.baseVal;
+                    
+                    if (trigger == tag + "Rect") {
+                        d3.selectAll("." + tag + "Rect").attr("opacity", 1);
+                        dragging[d.y] = y(d.y);
+                        
+				        // Move the row that is moving on the front
+				        sel = d3.select(this);
+				        sel.moveToFront();
+                    }
+                })
+                .on("drag", function(d) {
+                    // Hide what is in the back
+                    
+                    if (trigger == tag + "Rect") {
+                        dragging[d.y] = Math.min(height, Math.max(-1, d3.event.y));
+                        orders.appliance.sort(function(a, b) { 
+                            return position(a) - position(b); 
+                        });
+                        
+                        y.domain(orders.appliance);
+                        
+                        d3.selectAll("." + tag + "G").attr("transform", function(d, i) {
+                            return "translate(0," + position(d.y) + ")"; 
+                        });
+                    }
+                })
+                .on("end", function(d) {
+                    if (trigger == tag + "Rect") {
+                        delete dragging[d.y];
+                        
+	          	        transition(d3.select(this)).attr("transform", "translate(0," + position(d.y) + ")");
+                    }
+                })
+        );
+    
+    d3.selection.prototype.moveToFront = function() {
+        return this.each(function(){
+            this.parentNode.appendChild(this);
+        });
+    };
+
+    function position(d) {
+        var v = dragging[d];
+        return v == null ? y(d) : v;
+    }
+
+    function transition(g) {
+        return g.transition().duration(500);
+    }
+}
+
+jQuery('#service-selected').on('click', function(){
+    jQuery('.service-selection-panel').hide();
+    jQuery('.model-panel').show();
+    
+    services =  {
+                    'curtailment': {"label": "Curtailment", "ranks": {"HVAC":1, "Lighting":2, "Desktops":3, "Laptops":4}}, 
+                    'frequencyRegulation': {"label": "Frequency Regulation", "ranks": {"HVAC":2, "Lighting":3, "Desktops":1, "Laptops":4}}, 
+                    'ramping': {"label": "Ramping", "ranks": {"HVAC":1, "Lighting":4, "Desktops":3, "Laptops":2}}, 
+                    'reactivePowerControl': {"label": "Reactive Power Control", "ranks": {"HVAC":4, "Lighting":1, "Desktops":3, "Laptops":2}}
+                }
+    
+    d3.select(".grid-services").selectAll('*').remove();
+    d3.select(".service-labels").selectAll('*').remove();
+    
+    for (var i=0; i<4; i++) {
+        var key = Object.keys(services)[i];
+        addGridService(key, services[key]["label"], services[key]["ranks"]);
+    }
 });
 
-function reloadLayout() {
-    document.getElementById('aptLayout').src = 'static/images/floorPlans/' + document.getElementById("apt_type").value + 'BR.jpg';
-}
+jQuery('#back-to-selection').on('click', function(){
+    jQuery('.model-panel').hide();
+    jQuery('.service-selection-panel').show();
+});
+
+jQuery('#reconfigure').on('click', function(){
+    window.location.href = 'index.html';
+});
+
+jQuery(window).resize(function() {
+        location.reload();
+});
