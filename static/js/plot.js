@@ -382,7 +382,7 @@ function runModel() {
 }
 // });
 
-function addService(key) {
+function addService(key, label) {
     var selectionBox = d3.select('#select-service')
                             .append('div')
                                 .attr('class', 'col-md-3 form-check form-check-inline selection-box');
@@ -390,7 +390,7 @@ function addService(key) {
     selectionBox.append('input')
         .attr('class', 'form-check-input')
         .attr('type', 'checkbox')
-        .attr('name', 'applianceType')
+        .attr('name', 'service-type')
         .attr('id', key)
         .attr('value', key);
 
@@ -402,19 +402,23 @@ function addService(key) {
     figure.append('img')
             .attr('class', 'label-image')
             .attr('src', 'static/images/icons/monitors.png');
+    
+    figure.append('figcaption')
+            .attr('class', 'tag')
+            .text(label);
 }
 
 function showGridServices() {
     services =  {
                     'curtailment': {"label": "Curtailment", "ranks": {"HVAC":1, "Lighting":2, "Desktops":3, "Laptops":4}}, 
-                    'frequencyRegulation': {"label": "Frequency Regulation", "ranks": {"HVAC":2, "Lighting":3, "Desktops":1, "Laptops":4}}, 
+                    'frequency_regulation': {"label": "Frequency Regulation", "ranks": {"HVAC":2, "Lighting":3, "Desktops":1, "Laptops":4}}, 
                     'ramping': {"label": "Ramping", "ranks": {"HVAC":1, "Lighting":4, "Desktops":3, "Laptops":2}}, 
-                    'reactivePowerControl': {"label": "Reactive Power Control", "ranks": {"HVAC":4, "Lighting":1, "Desktops":3, "Laptops":2}}
+                    'reactive_power_control': {"label": "Reactive Power Control", "ranks": {"HVAC":4, "Lighting":1, "Desktops":3, "Laptops":2}}
                 }
     
     for (var i=0; i<4; i++) {
         var key = Object.keys(services)[i];
-        addService(key);
+        addService(key, services[key]["label"]);
     }
 }
 
@@ -429,7 +433,7 @@ function addGridService(tag, label, applianceRanking) {
         height = 2*actualWidth - margin.top - margin.bottom;
 
     var textDiv = d3.select(".service-labels").append('div')
-                        .attr('class', 'col-sm-3 text-wrap text-left mx-auto')
+                        .attr('class', 'col-sm-3 text-wrap text-left')
                         .text(label)
                         .style("font-size", function(d) { return width * 0.17 + "px"; })
         
@@ -581,22 +585,31 @@ function addGridService(tag, label, applianceRanking) {
 }
 
 jQuery('#service-selected').on('click', function(){
-    jQuery('.service-selection-panel').hide();
-    jQuery('.model-panel').show();
+    var service_list = [];
+    jQuery.each(jQuery('input[type=checkbox][name=service-type]:checked'), function(){
+        service_list.push($(this).val());
+    });
     
-    services =  {
-                    'curtailment': {"label": "Curtailment", "ranks": {"HVAC":1, "Lighting":2, "Desktops":3, "Laptops":4}}, 
-                    'frequencyRegulation': {"label": "Frequency Regulation", "ranks": {"HVAC":2, "Lighting":3, "Desktops":1, "Laptops":4}}, 
-                    'ramping': {"label": "Ramping", "ranks": {"HVAC":1, "Lighting":4, "Desktops":3, "Laptops":2}}, 
-                    'reactivePowerControl': {"label": "Reactive Power Control", "ranks": {"HVAC":4, "Lighting":1, "Desktops":3, "Laptops":2}}
-                }
-    
-    d3.select(".grid-services").selectAll('*').remove();
-    d3.select(".service-labels").selectAll('*').remove();
-    
-    for (var i=0; i<4; i++) {
-        var key = Object.keys(services)[i];
-        addGridService(key, services[key]["label"], services[key]["ranks"]);
+    if (service_list.length > 0) {
+        services =  {
+                        'curtailment': {"label": "Curtailment", "ranks": {"HVAC":1, "Lighting":2, "Desktops":3, "Laptops":4}}, 
+                        'frequency_regulation': {"label": "Frequency Regulation", "ranks": {"HVAC":2, "Lighting":3, "Desktops":1, "Laptops":4}}, 
+                        'ramping': {"label": "Ramping", "ranks": {"HVAC":1, "Lighting":4, "Desktops":3, "Laptops":2}}, 
+                        'reactive_power_control': {"label": "Reactive Power Control", "ranks": {"HVAC":4, "Lighting":1, "Desktops":3, "Laptops":2}}
+                    }
+
+        jQuery('.service-selection-panel').hide();
+        jQuery('.model-panel').show();
+
+        d3.select(".grid-services").selectAll('*').remove();
+        d3.select(".service-labels").selectAll('*').remove();
+
+        for (var i=0; i<service_list.length; i++) {
+            var key = service_list[i];
+            addGridService(key, services[key]["label"], services[key]["ranks"]);
+        }
+    } else {
+        alert('Please select at least one service.');
     }
 });
 
