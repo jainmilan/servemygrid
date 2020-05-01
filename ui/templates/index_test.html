@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% set div_dict = {'name': building_types.value, 'children':building_types.children} %}
+    {% set parent_list = [div_dict] %}
+    {% for parent in parent_list %}
+        {{ parent.name }}
+        {{ ': ' }}
+        {% for building in parent.children %}
+        	{{ building.name }}
+        	{{ ', ' }}
+        	{% if building.children %}
+	        	{% set div_dict = {'name': building.value, 'children':building.children} %}
+	        	{{ parent_list.append(div_dict) or ""}}
+	        {% endif %}
+        {% endfor %}
+    	</br>
+    {% endfor %}
+{% endblock content %}

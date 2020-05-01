@@ -1,0 +1,189 @@
+{
+	"value": "building",
+	"children": [
+		{
+			"name": "Residential",
+			"type": "parent",
+			"icon":	"house.png",
+			"value": "residential",
+			"parent": "building-type",
+			"children": [
+				{
+					"name": "Mid-Rise Apartments",
+					"type": "leaf",
+					"icon": "mra.png",
+					"value": "mra",
+					"parent": "residential-type"
+				},
+				{
+					"name": "High-Rise Apartments",
+					"type": "leaf",
+					"icon": "hra.png",
+					"value": "hra",
+					"parent": "residential-type"
+				}
+			]
+		},
+		{
+			"name": "Commercial",
+			"type": "parent",
+			"icon": "skyscraper.png",
+			"value": "commercial",
+			"parent": "building-type",
+			"children": [
+				{
+					"name": "Office Building",
+					"type": "parent",
+					"icon": "work.png",
+					"value": "office",
+					"parent": "commercial-type",
+					"children": [
+						{
+							"name": "Small Size Office",
+							"type": "leaf",
+							"icon": "smallOff.png",
+							"value": "smallOff",
+							"parent": "office-type"
+						},
+						{
+							"name": "Medium Size Office",
+							"type": "leaf",
+							"icon": "medOff.png",
+							"value": "medOff",
+							"parent": "office-type"
+						},
+						{
+							"name": "Large Size Office",
+							"type": "leaf",
+							"icon": "largeOff.png",
+							"value": "largeOff",
+							"parent": "office-type"
+						}
+					]
+				},
+				{
+					"name": "Healthcare Center",
+					"type": "parent",
+					"icon": "health.png",
+					"value": "healthcare",
+					"parent": "commercial-type",
+					"children": [
+						{
+							"name": "Outpatient Healthcare",
+							"type": "leaf",
+							"icon": "outPatient.png",
+							"value": "outPatient",
+							"parent": "healthcare-type"
+						},
+						{
+							"name": "Hospital",
+							"type": "leaf",
+							"icon": "hospital.png",
+							"value": "hospital",
+							"parent": "healthcare-type"
+						}
+					]
+				},
+				{
+					"name": "School",
+					"type": "parent",
+					"icon": "school.png",
+					"value": "school",
+					"parent": "commercial-type",
+					"children": [
+						{
+							"name": "Primary School",
+							"type": "leaf",
+							"icon": "primary.png",
+							"value": "primary",
+							"parent": "school-type"
+						},
+						{
+							"name": "Secondary School",
+							"type": "leaf",
+							"icon": "secondary.png",
+							"value": "secondary",
+							"parent": "school-type"
+						}
+					]
+				},
+				{
+					"name": "Hotel",
+					"type": "parent",
+					"icon": "hotel.png",
+					"value": "hotel",
+					"parent": "commercial-type",
+					"children": [
+						{
+							"name": "Small Hotel",
+							"type": "leaf",
+							"icon": "smallHotel.png",
+							"value": "smallHotel",
+							"parent": "hotel-type"
+						},
+						{
+							"name": "Large Hotel",
+							"type": "leaf",
+							"icon": "largeHotel.png",
+							"value": "largeHotel",
+							"parent": "hotel-type"
+						}
+					]
+				},
+				{
+					"name": "Restaurant",
+					"type": "parent",
+					"icon": "restaurant.png",
+					"value": "restaurant",
+					"parent": "commercial-type",
+					"children": [
+						{
+							"name": "Quick Service Restaurant",
+							"type": "leaf",
+							"icon": "quickService.png",
+							"value": "quickService",
+							"parent": "restaurant-type"
+						},
+						{
+							"name": "Full Service Restaurant",
+							"type": "leaf",
+							"icon": "fullService.png",
+							"value": "fullService",
+							"parent": "restaurant-type"
+						}
+					]
+				},
+				{
+					"name": "Shopping Center",
+					"type": "parent",
+					"icon": "shop.png",
+					"value": "shop",
+					"parent": "commercial-type",
+					"children": [
+						{
+							"name": "Retail Shop",
+							"type": "leaf",
+							"icon": "retail.png",
+							"value": "retail",
+							"parent": "shop-type"
+						},
+						{
+							"name": "Strip Mall",
+							"type": "leaf",
+							"icon": "mall.png",
+							"value": "mall",
+							"parent": "shop-type"
+						}
+					]
+				},
+				{
+					"name": "Warehouse",
+					"type": "leaf",
+					"icon": "warehouse.png",
+					"value": "warehouse",
+					"parent": "commercial-type"
+				}
+			]
+		} 
+	]
+}

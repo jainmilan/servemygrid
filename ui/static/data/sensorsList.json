@@ -1,0 +1,1266 @@
+[{
+	"mra":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"hra":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"smallOff":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"medOff":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"largeOff":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"outPatient":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"hospital":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"primary":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"secondary":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"smallHotel":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"largeHotel":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"quickService":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"fullService":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"retail":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"mall":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	],
+	"warehouse":[
+		{
+			"hvac":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+				"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"lighting":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"desktops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"laptops":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"monitors":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"refrigerators":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"kitchenVent":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"videoDisplay":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"securitySystem":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"medImaging":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		},
+		{
+			"labEquipment":
+			{
+				"streams":["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"],
+			 	"scores":{"Curtailment":1, "Frequency Regulation":1, "Ramping":1, "Reactive Power Control":1}
+			}
+		}
+	]
+}]

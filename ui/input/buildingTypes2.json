@@ -1,0 +1,46 @@
+{
+	"building": {
+		"children": ["residential", "commercial"]
+	}, 
+	"residential": {
+		"label": "Residential",
+		"children": ["mra", "hra"]
+	},
+	"commercial": {
+		"label": "Commercial",
+		"children": ["office", "healthcare", "school", "hotel", "restaurant", "shop", "warehouse"]
+	},
+	"mra": {
+		"label": "Mid-Rise Apartments"
+	},
+	"hra": {
+		"label": "High-Rise Apartment"
+	},
+	"office": {
+		"label": "Office Building",
+		"children": ["smallOff", "medOff", "largeOff"]
+	},
+	"healthcare": {
+		"label": "Healthcare Center",
+		"children": ["outPatient", "hospital"]
+	},
+	"school": {
+		"label": "School",
+		"children": ["primary", "secondary"]
+	},
+	"hotel": {
+		"label": "Hotel",
+		"children": ["smallHotel", "largeHotel"]
+	},
+	"restaurant": {
+		"label": "Restaurant",
+		"children": ["quickService", "fullService"]
+	},
+	"shop": {
+		"label": "Shopping Center",
+		"children": ["retail", "mall"]
+	},
+	"warehouse": {
+		"label": "Warehouse"
+	}
+}

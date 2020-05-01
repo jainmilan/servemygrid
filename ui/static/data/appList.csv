@@ -1,0 +1,12 @@
+mra,hra,smallOff,medOff,largeOff,outPatient,hospital,primary,secondary,smallHotel,largeHotel,quickService,fullService,retail,mall,warehouse
+hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac,hvac
+lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting,lighting
+desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops,desktops
+laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops,laptops
+monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors,monitors
+refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators,refrigerators
+kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent,kitchenVent
+videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay,videoDisplay
+securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem,securitySystem
+medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging,medImaging
+labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment,labEquipment
