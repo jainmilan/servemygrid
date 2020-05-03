@@ -6,21 +6,21 @@
 			"type": "parent",
 			"icon":	"house.png",
 			"value": "residential",
-			"parent": "building-type",
+			"parent": "building",
 			"children": [
 				{
 					"name": "Mid-Rise Apartments",
 					"type": "leaf",
 					"icon": "mra.png",
 					"value": "mra",
-					"parent": "residential-type"
+					"parent": "building_residential"
 				},
 				{
 					"name": "High-Rise Apartments",
 					"type": "leaf",
 					"icon": "hra.png",
 					"value": "hra",
-					"parent": "residential-type"
+					"parent": "building_residential"
 				}
 			]
 		},
@@ -29,35 +29,35 @@
 			"type": "parent",
 			"icon": "skyscraper.png",
 			"value": "commercial",
-			"parent": "building-type",
+			"parent": "building",
 			"children": [
 				{
 					"name": "Office Building",
 					"type": "parent",
 					"icon": "work.png",
 					"value": "office",
-					"parent": "commercial-type",
+					"parent": "building_commercial",
 					"children": [
 						{
 							"name": "Small Size Office",
 							"type": "leaf",
 							"icon": "smallOff.png",
 							"value": "smallOff",
-							"parent": "office-type"
+							"parent": "building_commercial_office"
 						},
 						{
 							"name": "Medium Size Office",
 							"type": "leaf",
 							"icon": "medOff.png",
 							"value": "medOff",
-							"parent": "office-type"
+							"parent": "building_commercial_office"
 						},
 						{
 							"name": "Large Size Office",
 							"type": "leaf",
 							"icon": "largeOff.png",
 							"value": "largeOff",
-							"parent": "office-type"
+							"parent": "building_commercial_office"
 						}
 					]
 				},
@@ -66,21 +66,21 @@
 					"type": "parent",
 					"icon": "health.png",
 					"value": "healthcare",
-					"parent": "commercial-type",
+					"parent": "building_commercial",
 					"children": [
 						{
 							"name": "Outpatient Healthcare",
 							"type": "leaf",
 							"icon": "outPatient.png",
 							"value": "outPatient",
-							"parent": "healthcare-type"
+							"parent": "building_commercial_healthcare"
 						},
 						{
 							"name": "Hospital",
 							"type": "leaf",
 							"icon": "hospital.png",
 							"value": "hospital",
-							"parent": "healthcare-type"
+							"parent": "building_commercial_healthcare"
 						}
 					]
 				},
@@ -89,21 +89,21 @@
 					"type": "parent",
 					"icon": "school.png",
 					"value": "school",
-					"parent": "commercial-type",
+					"parent": "building_commercial",
 					"children": [
 						{
 							"name": "Primary School",
 							"type": "leaf",
 							"icon": "primary.png",
 							"value": "primary",
-							"parent": "school-type"
+							"parent": "building_commercial_school"
 						},
 						{
 							"name": "Secondary School",
 							"type": "leaf",
 							"icon": "secondary.png",
 							"value": "secondary",
-							"parent": "school-type"
+							"parent": "building_commercial_school"
 						}
 					]
 				},
@@ -112,21 +112,21 @@
 					"type": "parent",
 					"icon": "hotel.png",
 					"value": "hotel",
-					"parent": "commercial-type",
+					"parent": "building_commercial",
 					"children": [
 						{
 							"name": "Small Hotel",
 							"type": "leaf",
 							"icon": "smallHotel.png",
 							"value": "smallHotel",
-							"parent": "hotel-type"
+							"parent": "building_commercial_hotel"
 						},
 						{
 							"name": "Large Hotel",
 							"type": "leaf",
 							"icon": "largeHotel.png",
 							"value": "largeHotel",
-							"parent": "hotel-type"
+							"parent": "building_commercial_hotel"
 						}
 					]
 				},
@@ -135,21 +135,21 @@
 					"type": "parent",
 					"icon": "restaurant.png",
 					"value": "restaurant",
-					"parent": "commercial-type",
+					"parent": "building_commercial",
 					"children": [
 						{
 							"name": "Quick Service Restaurant",
 							"type": "leaf",
 							"icon": "quickService.png",
 							"value": "quickService",
-							"parent": "restaurant-type"
+							"parent": "building_commercial_restaurant"
 						},
 						{
 							"name": "Full Service Restaurant",
 							"type": "leaf",
 							"icon": "fullService.png",
 							"value": "fullService",
-							"parent": "restaurant-type"
+							"parent": "building_commercial_restaurant"
 						}
 					]
 				},
@@ -158,21 +158,21 @@
 					"type": "parent",
 					"icon": "shop.png",
 					"value": "shop",
-					"parent": "commercial-type",
+					"parent": "building_commercial",
 					"children": [
 						{
 							"name": "Retail Shop",
 							"type": "leaf",
 							"icon": "retail.png",
 							"value": "retail",
-							"parent": "shop-type"
+							"parent": "building_commercial_shop"
 						},
 						{
 							"name": "Strip Mall",
 							"type": "leaf",
 							"icon": "mall.png",
 							"value": "mall",
-							"parent": "shop-type"
+							"parent": "building_commercial_shop"
 						}
 					]
 				},
@@ -181,7 +181,7 @@
 					"type": "leaf",
 					"icon": "warehouse.png",
 					"value": "warehouse",
-					"parent": "commercial-type"
+					"parent": "building_commercial"
 				}
 			]
 		} 

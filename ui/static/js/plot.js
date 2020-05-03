@@ -1,3 +1,65 @@
+var fileObj;
+var validBuildingFile = false;
+
+jQuery('#btn-make-building').on('click', function() {
+    jQuery.ajax({
+        type: "POST",
+        url: "/build",
+        data: JSON.stringify({"build_type": "scratch"}),
+        dataType : "html",
+        contentType: "application/json",
+        success: function(response) {
+            jQuery('.mainbox').html(response);
+        },
+        error: function() {
+            alert( "error" );
+        }
+    });
+});
+
+jQuery('#btn-upload-file').on('click', function() {
+    $('#mdl-upload-file').modal('show');
+});
+
+function onFileSelect(event) {
+    jQuery('#uploadHelp').text('The file "' + event.target.files[0].name +  '" has been selected.');
+    
+    var reader = new FileReader();
+    reader.onload = onReaderLoad;
+    reader.readAsText(event.target.files[0]);
+}
+
+function onReaderLoad(event){
+    try {
+        fileObj = JSON.parse(event.target.result);
+        validBuildingFile = true;
+    } catch (e) {
+        alert("Invalid JSON, cannot upload!");
+    }
+}
+
+document.getElementById('customFile').addEventListener('change', onFileSelect);
+
+jQuery('#btn-upload-selected-file').on('click', function() {
+    $('#mdl-upload-file').modal('hide').data('bs.modal', null);
+    if (validBuildingFile) {
+        fileObj['build_type'] = 'upload';
+        jQuery.ajax({
+            type: "POST",
+            url: "/build",
+            data: JSON.stringify(fileObj),
+            dataType : "json",
+            contentType: "application/json",
+            success: function(response) {
+                jQuery('.mainbox').html(response);
+            },
+            error: function() {
+                alert(response);
+            }
+        });
+    }
+});
+
 function showStreams(streamInfo, streamList, buildingMap) {
     $('#streamList').modal('show');
     d3.select(".modal-body").selectAll("*").remove();
@@ -611,11 +673,6 @@ jQuery('#service-selected').on('click', function(){
     } else {
         alert('Please select at least one service.');
     }
-});
-
-jQuery('#btn-make-building').on('click', function(){
-    jQuery('#file-type').hide();
-    jQuery('#building-type').show();
 });
 
 jQuery('#back-to-selection').on('click', function(){
