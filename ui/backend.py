@@ -18,6 +18,11 @@ def index():
 	return render_template('index.html')
 
 # decorator and function for the home page
+@app.route("/analyse")
+def analyze():
+	return render_template('model.html')
+
+# decorator and function for the home page
 @app.route("/build", methods=['GET', 'POST'])
 def build():
 	if request.method == "POST":

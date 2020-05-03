@@ -23,7 +23,8 @@ function update_buildtype (building_json) {
         .append('button')
             .attr("id", "btn-back")
             .attr("type", "button")
-            .attr("class", "btn btn-default back-button");
+            .attr("class", "btn btn-default back-button")
+        .on("");
 
     // append parent div for all the sub building types
     d3.select('#row-lmp')
