@@ -1,185 +1,7 @@
 var globalBuildingTypes, c_indx, globalBuildingMap, globalDefaultAppList;
 var sysVariables = { max_nzones: 0 };
 
-function showStreams(streamInfo, streamList) {
-    $('#streamList').modal('show');
-    d3.select("#mdlbdy-stream-list").selectAll("*").remove();
-    
-    var streamTable = d3.select("#mdlbdy-stream-list").append('table')
-                            .attr('class', 'table table-sm table-bordered stream-table')
-    
-    var streamBody = streamTable.append('tbody')
-    
-    var i = 0;
-    streamList.forEach(function(d){
-        streamRow = streamBody.append('tr').attr('id', 'sr' + i.toString());
-        
-        streamRow.append('td')
-                    .attr('style', 'text-align:left;')
-                    .text(d.label)
-        streamRow.append('td')
-                .append('img')
-                    .attr('class', 'row-simage')
-                    .attr('src', 'static/images/icons/link.png');
-        streamRow.append('td')
-                .text(d.stream);
-        streamRow.append('td')
-                .append('img')
-                    .attr('class', 'row-simage')
-                    .attr('src', 'static/images/icons/upload.png');
-        streamRow.append('td')
-                .text(d.filename);
-        streamRow.append('td')
-                .append('img')
-                    .attr('class', 'row-simage')
-                    .attr('id', streamInfo + '_' + i.toString())
-                    .attr('style', 'cursor:pointer;')
-                    .attr('src', 'static/images/icons/cancel.png')
-                .on('click', function(){
-                    var tag_list = this.id.split('_');
-                    if (tag_list.length == 5) {
-                        jQuery("#sr" + tag_list[4].toString()).remove();
-                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]][tag_list[4]]
-                    } else if (tag_list.length == 4) {
-                        jQuery("#sr" + tag_list[3].toString()).remove();
-                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["appliances"][tag_list[1]][tag_list[3]]
-                    } else if (tag_list.length == 3) {
-                        jQuery("#sr" + tag_list[2].toString()).remove();
-                        delete globalBuildingMap["building"]["appliances"][tag_list[0]][tag_list[2]]
-                    }
-                });
-        i = i + 1;
-    });
-}
-
-function printApplianceList(iType, id) {
-    var label = "";
-    var cross_tag = "";
-    var appliances = [];
-    
-    if (iType == "building") {
-        label = "Building Loads";
-        cross_tag = "_"
-        appliances = globalBuildingMap["building"]["appliances"];
-    } else if (iType == "floor") {
-        label = "Floor-" + id.split('F')[1].toString() + " Loads"
-        cross_tag = "F" + id.split('F')[1].toString() + "_"
-        appliances = globalBuildingMap["building"]["floors"][id]["appliances"];
-    } else if (iType == "zone") {
-        label = "Floor-" + id.split('_')[0].split('F')[1].toString() + " Zone-" + id.split('_')[1].split('Z')[1].toString() + " Loads";
-        cross_tag = "F" +  + id.split('_')[0].split('F')[1].toString() + "_Z" + id.split('_')[1].split('Z')[1].toString() + "_"
-        appliances = globalBuildingMap["building"]["floors"][id.split('_')[0]]["zones"][id.split('_')[1]];
-    }
-    
-    var applianceDiv = d3.select(".list-of-appliances");
-    applianceDiv.selectAll("*").remove();
-    
-    var applianceTable = applianceDiv.append('table')
-                            .attr('class', 'table table-sm table-bordered appliance-table')
-                            .attr('id', 'appliance-table')
-    
-    var tableHead = applianceTable.append('thead').append('tr').append('th')
-            .attr('scope', 'col')
-            .attr('colspan', 2)
-            .text(label);
-    
-    var tableBody = applianceTable.append('tbody')
-    
-    for (var i=0; i<Object.keys(appliances).length; i++) {
-        var appliance = Object.keys(appliances)[i];
-        var app_cross_tag = cross_tag + appliance + '_' + i.toString();
-        
-        var tableRow = tableBody.append('tr').attr('id', 'r' + i.toString());
-        
-        tableRow.append('td')
-                    .attr('style', 'text-align:left;')
-                    .attr('class', 'clickable-link')
-                .append('a')
-                    .attr('href', 'javascript:void(0);')
-                    .text(appliance)
-                .on('click', function(data) {
-                    showStreams(app_cross_tag, appliances[appliance]);
-                });
-        tableRow.append('td')
-                .append('img')
-                    .attr('class', 'row-simage')
-                    .attr('id', app_cross_tag)
-                    .attr('src', 'static/images/icons/cancel.png')
-                    .attr('style', 'cursor:pointer;')
-                .on('click', function(){
-                    var tag_list = this.id.split('_');
-                    if (tag_list.length == 4) {
-                        jQuery("#r" + tag_list[3].toString()).remove();
-                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]]
-                    } else if (tag_list.length == 3) {
-                        jQuery("#r" + tag_list[2].toString()).remove();
-                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["appliances"][tag_list[1]]
-                    } else if (tag_list.length == 2) {
-                        jQuery("#r" + tag_list[1].toString()).remove();
-                        delete globalBuildingMap["building"]["appliances"][tag_list[0]]
-                    }
-                });
-    }
-}
-
-function generateTable() {
-    var buildingModel = d3.select('.building-box');
-    
-    buildingModel.selectAll('*').remove();
-    buildingTable = buildingModel.append('table')
-                        .attr('class', 'table table-sm table-bordered building-model')
-    
-    var tableBody = buildingTable.append('tbody');
-    
-    var nfloors = Object.keys(globalBuildingMap["building"]["floors"]).length;
-    for (var i=nfloors-1; i>=0; i--) {
-        floorRow = tableBody.append('tr').attr('class', 'F' + (i+1).toString() + '_row')
-        nzones = Object.keys(globalBuildingMap["building"]["floors"]['F' + (i+1).toString()]["zones"]).length;
-        
-        var nzoneArraylen = nzones * Math.ceil(sysVariables['max_nzones'] % nzones);
-        
-        nzoneArray = new Array(nzones).fill(0);
-        for (var j=0; j<sysVariables['max_nzones']; j++) {
-            nzoneArray[j%nzones] = nzoneArray[j%nzones] + 1;
-        }
-        
-        for (var j=0; j<nzones; j++) {
-            floorRow.append('td')
-                        .attr('colspan', nzoneArray[j])
-                        .attr('class', 'zone-block clickable-link')
-                    .append('a')
-                        .attr('href', 'javascript:void(0);')
-                        .attr('id', 'F' + (i+1).toString() + '_Z' + (j+1).toString())
-                        .text('Z' + (j+1).toString())
-                    .on('click', function(data) {
-                        printApplianceList('zone', this.id);
-                    });
-        }
-        
-        floorRow.append('td')
-                    .attr('class', 'floor-block clickable-link')
-                .append('a')
-                    .attr('href', 'javascript:void(0);')
-                    .attr('id', 'F' + (i+1).toString())
-                    .text('F' + (i+1).toString())
-                .on('click', function(data) {
-                    printApplianceList('floor', this.id);
-                });
-    }
-    
-    tableBody.append('tr').append('td')
-            .attr('scope', 'col')
-            .attr('colspan', sysVariables['max_nzones'])
-            .attr('class', 'building-block clickable-link')
-        .append('a')
-            .attr('href', 'javascript:void(0);')
-            .attr('id', 'B0')
-            .text("Building Loads")
-        .on('click', function(data) {
-            printApplianceList('building', this.id);
-        });
-}
-
+// get default parameters
 function get_default() {
     jQuery.ajax({
         type: "POST",
@@ -196,14 +18,243 @@ function get_default() {
     });
 }
 
+jQuery('#btn-save-building').on('click', function(){
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(globalBuildingMap, null, 2)], {
+        type: "json"
+    }));
+    a.setAttribute("download", "buildingMAP.json");
+    document.body.appendChild(a);
+    
+    a.click();
+    document.body.removeChild(a);
+});
+
+// show a list of data streams for a selected appliance
+function showStreams(streamInfo, streamList) {
+
+    // show modal and remove previous content 
+    $('#streamList').modal('show');
+    d3.select("#mdlbdy-stream-list").selectAll("*").remove();
+    
+    // add a table for the new list
+    var streamTable = d3.select("#mdlbdy-stream-list").append('table')
+                            .attr('class', 'table table-sm table-bordered stream-table')
+    
+    var streamBody = streamTable.append('tbody')
+    
+    // for each stream
+    var i = 0;
+    streamList.forEach(function(d){
+        streamRow = streamBody.append('tr').attr('id', 'sr' + i.toString());
+        
+        // data label
+        streamRow.append('td')
+                    .attr('style', 'text-align:left;')
+                    .text(d.label)
+        
+        // to link it to a data stream
+        streamRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('src', 'static/images/icons/link.png');
+        streamRow.append('td')
+                .text(d.stream);
+
+        // to get data from the file
+        streamRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('src', 'static/images/icons/upload.png');
+        streamRow.append('td')
+                .text(d.filename);
+
+        // to delete a particular data stream
+        streamRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('id', streamInfo + '_' + i.toString())
+                    .attr('style', 'cursor:pointer;')
+                    .attr('src', 'static/images/icons/cancel.png')
+                .on('click', function() {
+                    // on delete, update the global building map
+                    var tag_list = this.id.split('_');
+                    if (tag_list.length == 5) {
+                        jQuery("#sr" + tag_list[4].toString()).remove();
+                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]][tag_list[4]]
+                    } else if (tag_list.length == 4) {
+                        jQuery("#sr" + tag_list[3].toString()).remove();
+                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["appliances"][tag_list[1]][tag_list[3]]
+                    } else if (tag_list.length == 3) {
+                        jQuery("#sr" + tag_list[2].toString()).remove();
+                        delete globalBuildingMap["building"]["appliances"][tag_list[0]][tag_list[2]]
+                    }
+                });
+        i = i + 1;
+    });
+}
+
+// print a list of appliances present in building/floor/zone
+function printApplianceList(iType, id) {
+    var label = "";
+    var cross_tag = "";
+    var appliances = [];
+    
+    // get a list of appliances for building, floor, and zone
+    if (iType == "building") {
+        label = "Building Loads";
+        cross_tag = "_"
+        appliances = globalBuildingMap["building"]["appliances"];
+    } else if (iType == "floor") {
+        label = "Floor-" + id.split('F')[1].toString() + " Loads"
+        cross_tag = "F" + id.split('F')[1].toString() + "_"
+        appliances = globalBuildingMap["building"]["floors"][id]["appliances"];
+    } else if (iType == "zone") {
+        label = "Floor-" + id.split('_')[0].split('F')[1].toString() + " Zone-" + id.split('_')[1].split('Z')[1].toString() + " Loads";
+        cross_tag = "F" +  + id.split('_')[0].split('F')[1].toString() + "_Z" + id.split('_')[1].split('Z')[1].toString() + "_"
+        appliances = globalBuildingMap["building"]["floors"][id.split('_')[0]]["zones"][id.split('_')[1]];
+    }
+    
+    // clear the previous appliance list
+    var applianceDiv = d3.select(".list-of-appliances");
+    applianceDiv.selectAll("*").remove();
+    
+    // add a new appliance list
+    var applianceTable = applianceDiv.append('table')
+                            .attr('class', 'table table-sm table-bordered appliance-table')
+                            .attr('id', 'appliance-table')
+    
+    // appliance list heading
+    var tableHead = applianceTable.append('thead').append('tr').append('th')
+            .attr('scope', 'col')
+            .attr('colspan', 2)
+            .text(label);
+    
+    var tableBody = applianceTable.append('tbody')
+    
+    // add all the appliances
+    for (var i=0; i<Object.keys(appliances).length; i++) {
+        var appliance = Object.keys(appliances)[i];
+        var app_cross_tag = cross_tag + appliance + '_' + i.toString();
+        
+        var tableRow = tableBody.append('tr').attr('id', 'r' + i.toString());
+        
+        // clickable link for each appliance
+        tableRow.append('td')
+                    .attr('style', 'text-align:left;')
+                    .attr('class', 'clickable-link')
+                .append('a')
+                    .attr('href', 'javascript:void(0);')
+                    .text(appliance)
+                .on('click', function(data) {
+                    // for each appliance, show a list of data streams available
+                    showStreams(app_cross_tag, appliances[appliance]);
+                });
+
+        // for each appliance, add a cancel image to delete that appliance
+        tableRow.append('td')
+                .append('img')
+                    .attr('class', 'row-simage')
+                    .attr('id', app_cross_tag)
+                    .attr('src', 'static/images/icons/cancel.png')
+                    .attr('style', 'cursor:pointer;')
+                .on('click', function(){
+                    // on delete, update the building map
+                    var tag_list = this.id.split('_');
+                    if (tag_list.length == 4) {
+                        jQuery("#r" + tag_list[3].toString()).remove();
+                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["zones"][tag_list[1]][tag_list[2]]
+                    } else if (tag_list.length == 3) {
+                        jQuery("#r" + tag_list[2].toString()).remove();
+                        delete globalBuildingMap["building"]["floors"][tag_list[0]]["appliances"][tag_list[1]]
+                    } else if (tag_list.length == 2) {
+                        jQuery("#r" + tag_list[1].toString()).remove();
+                        delete globalBuildingMap["building"]["appliances"][tag_list[0]]
+                    }
+                });
+    }
+}
+
+// print summary table in the right most panel
+function generateTable() {
+
+    // select building box and append table
+    var buildingModel = d3.select('.building-box');
+    
+    buildingModel.selectAll('*').remove();
+    buildingTable = buildingModel.append('table')
+                        .attr('class', 'table table-sm table-bordered building-model')
+    
+    var tableBody = buildingTable.append('tbody');
+    
+    // add floors and zones
+    var nfloors = Object.keys(globalBuildingMap["building"]["floors"]).length;
+    for (var i=nfloors-1; i>=0; i--) {
+        floorRow = tableBody.append('tr').attr('class', 'F' + (i+1).toString() + '_row')
+        nzones = Object.keys(globalBuildingMap["building"]["floors"]['F' + (i+1).toString()]["zones"]).length;
+        
+        var nzoneArraylen = nzones * Math.ceil(sysVariables['max_nzones'] % nzones);
+        
+        nzoneArray = new Array(nzones).fill(0);
+        for (var j=0; j<sysVariables['max_nzones']; j++) {
+            nzoneArray[j%nzones] = nzoneArray[j%nzones] + 1;
+        }
+        
+        // add a clickable link to get the list of appliances for each zone
+        for (var j=0; j<nzones; j++) {
+            floorRow.append('td')
+                        .attr('colspan', nzoneArray[j])
+                        .attr('class', 'zone-block clickable-link')
+                    .append('a')
+                        .attr('href', 'javascript:void(0);')
+                        .attr('id', 'F' + (i+1).toString() + '_Z' + (j+1).toString())
+                        .text('Z' + (j+1).toString())
+                    .on('click', function(data) {
+                        // print list of appliances for the selected zone
+                        printApplianceList('zone', this.id);
+                    });
+        }
+        
+        // add a clickable link to get the list of appliances for each floor
+        floorRow.append('td')
+                    .attr('class', 'floor-block clickable-link')
+                .append('a')
+                    .attr('href', 'javascript:void(0);')
+                    .attr('id', 'F' + (i+1).toString())
+                    .text('F' + (i+1).toString())
+                .on('click', function(data) {
+                    // print list of appliances for the selected floor
+                    printApplianceList('floor', this.id);
+                });
+    }
+    
+    // add a clickable link to get the list of common appliances for the building
+    tableBody.append('tr').append('td')
+            .attr('scope', 'col')
+            .attr('colspan', sysVariables['max_nzones'])
+            .attr('class', 'building-block clickable-link')
+        .append('a')
+            .attr('href', 'javascript:void(0);')
+            .attr('id', 'B0')
+            .text("Building Loads")
+        .on('click', function(data) {
+            // print list of appliances for the building
+            printApplianceList('building', this.id);
+        });
+}
+
+// print summary panel
 function addFloor(f_no, nZones=1) {
+
+    // select floor panel and compare number of floors with stored system variables
     var floorPanel = d3.select('.floor-list');
 
     var currentNZones = nZones;
     if (currentNZones > sysVariables['max_nzones']) { sysVariables['max_nzones'] = currentNZones; }
     
     var floorID = f_no;
-            
+           
+    // append floors 
     var panel = floorPanel
                     .append('div')
                         .attr('class', 'col-sm-3 floor-div f' + (f_no+1).toString())
@@ -223,7 +274,9 @@ function addFloor(f_no, nZones=1) {
             .attr('type', 'text')
             .attr('value', currentNZones)
             .attr('style', 'text-align:center;')
-        .on('change', function(){
+        .on('change', function() {
+
+            // update global building map
             var floorID = 'F' + this.id.split('zones')[0].split('f')[1];
             
             // previous number of floors
@@ -242,10 +295,13 @@ function addFloor(f_no, nZones=1) {
                     delete globalBuildingMap["building"]["floors"][floorID]["zones"]['Z' + (i).toString()];
                 }
             }
+
+            // update summary table
             generateTable();
         });
 }
 
+// update number of floors and number of zones at each floor when number of floors get updated
 function update_zones() {
     var floorPanel = d3.select('.floor-list');
 
@@ -296,6 +352,7 @@ function update_zones() {
     generateTable();
 }
 
+// layout floor plan in the middle panel
 function build_floormap() {
 
     // update configuration panel
@@ -327,11 +384,12 @@ function build_floormap() {
     jQuery('#right-most-panel').show();                 
 }
 
-function get_floormap(build_type) {
+// get floor layout for the selected building
+function get_floormap(b_type, b_indx) {
     jQuery.ajax({
         type: "POST",
         url: "/query",
-        data: JSON.stringify({"query_type": "map", "build_type": build_type}),
+        data: JSON.stringify({"query_type": "map", "build_type": b_type, "build_indx": b_indx}),
         dataType : "html",
         contentType: "application/json",
         success: function(response) {
@@ -345,25 +403,8 @@ function get_floormap(build_type) {
     });
 }
 
-function back_button(b_val) {
-    // Remove panel when changing buildings
-    jQuery('#middle-panel').hide();
-    jQuery('#right-most-panel').hide();
-    
-    var indx_split = c_indx.split("_");
-    if (indx_split.length > 1) {
-        var tempJSON = globalBuildingTypes;
-        for (i = 1; i < indx_split.length-1; i++) {
-            tempJSON = tempJSON["children"][(+indx_split[i])-1];
-        }
-        update_buildtype(tempJSON);
-    } else {
-        document.location.href = "/";
-    }
-}
-
-// function to update building type panel
-function update_buildtype (building_json) {
+// function to draw building tree
+function drw_bld_tree (building_json) {
     
     // Index of clicked building type
     c_indx = building_json.indx;
@@ -418,10 +459,12 @@ function update_buildtype (building_json) {
             .attr("value", function (d){ return d.value; })
         .on('change', function(d) {
             if (d.type !="leaf") { 
+                // if a parent node, go down to lower level
                 c_indx = d.indx;
-                update_buildtype (d);
+                drw_bld_tree (d);
             } else {
-                get_floormap(d.value);
+                // if a leaf node, select the level
+                get_floormap(d.parent + "_" + d.value, d.indx);
             }
         });
     
@@ -445,19 +488,123 @@ function update_buildtype (building_json) {
             .text(function (d){ return d.name; });
 }
 
+// when making the building from scratch
 jQuery('#btn-make-building').on('click', function() {
+    try {
+        drw_bld_tree(globalBuildingTypes);
+    } catch(err) {
+        alert(err.message);
+    }
+});
+
+// load the JSON file
+function onFileSelect(event) {
+    jQuery('#uploadHelp').text('The file "' + event.target.files[0].name +  '" has been selected.');
+    
+    var reader = new FileReader();
+    reader.onload = onReaderLoad;
+    reader.readAsText(event.target.files[0]);
+}
+
+// parse the json file, load only if valid
+function onReaderLoad(event){
+    try {
+        fileObj = JSON.parse(event.target.result);
+        validBuildingFile = true;
+    } catch (e) {
+        alert("Invalid JSON, cannot upload!");
+    }
+}
+
+// Click event for upload button on the modal screen
+jQuery('#btn-upload-selected-file').on('click', function() {
+
+    // close the modal
+    $('#mdl-upload-file').modal('hide');
+
+    // if uploaded file is valid
+    if (validBuildingFile) {
+
+        // add query-type for server processing
+        fileObj['query_type'] = 'upload';
+
+        // ajax query
+        jQuery.ajax({
+            type: "POST",
+            url: "/query",
+            data: JSON.stringify(fileObj),
+            dataType : "html",
+            contentType: "application/json",
+            success: function(response) {
+                // parse the building map and get default appliance list
+                globalBuildingMap = JSON.parse(response);
+                get_default();
+                
+                // get c_indx to show selection on building box
+                c_indx = globalBuildingMap["building"]["index"];
+                var indx_split = c_indx.split("_");
+
+                // update left most panel
+                var tempJSON = globalBuildingTypes;
+                for (i = 1; i < indx_split.length-1; i++) {
+                    tempJSON = tempJSON["children"][(+indx_split[i])-1];
+                }
+                drw_bld_tree(tempJSON);
+
+                // check the selected building type
+                jQuery('#' + globalBuildingMap["building"]["type"]).prop('checked', true);
+
+                // update middle and rightmost containers
+                build_floormap();
+            },
+            error: function() {
+                // if ajax failed
+                alert(response);
+            }
+        });
+    }
+});
+
+// back button in the left most panel
+function back_button(b_val) {
+    
+    // remove panel when changing buildings
+    jQuery('#middle-panel').hide();
+    jQuery('#right-most-panel').hide();
+    
+    // change the view to parent building
+    var indx_split = c_indx.split("_");
+    if (indx_split.length > 1) {
+        var tempJSON = globalBuildingTypes;
+        for (i = 1; i < indx_split.length-1; i++) {
+            tempJSON = tempJSON["children"][(+indx_split[i])-1];
+        }
+        drw_bld_tree(tempJSON);
+    } else {
+        // move to index page
+        document.location.href = "/";
+    }
+}
+
+// javascript when page loads
+jQuery(document).ready(function(){
+
+    // get building tree
     jQuery.ajax({
         type: "POST",
         url: "/query",
-        data: JSON.stringify({"query_type": "scratch"}),
+        data: JSON.stringify({"query_type": "getTypes"}),
         dataType : "html",
         contentType: "application/json",
         success: function(response) {
             globalBuildingTypes = JSON.parse(response);
-            update_buildtype(globalBuildingTypes, "root");
         },
         error: function() {
             alert( "error" );
         }
-    });
+    })
+
+    // file selection event on the upload modal screen
+    document.getElementById('input-building-map').addEventListener('change', onFileSelect);
+
 });

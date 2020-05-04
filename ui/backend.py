@@ -35,6 +35,7 @@ default_appliances = {
 		{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 	]
 }
+
 # decorator and function for the home page
 @app.route("/")
 def index():
@@ -49,11 +50,14 @@ def analyze():
 @app.route("/query", methods=['GET', 'POST'])
 def build():
 	if request.method == "POST":
-		if request.json['query_type'] == 'scratch':
+		if request.json['query_type'] == 'getTypes':
 			return jsonify(building_types_JSON);
 		elif request.json['query_type'] == 'upload':
-			return render_template('building.html', building_types=building_types_JSON)
+			del request.json['query_type']
+			return request.json
 		elif request.json['query_type'] == 'map':
+			building_JSON['building']['type'] = request.json['build_type']
+			building_JSON['building']['index'] = request.json['build_indx']
 			return jsonify(building_JSON)
 		elif request.json['query_type'] == 'default':
 			return jsonify(default_appliances)
