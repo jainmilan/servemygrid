@@ -5,14 +5,21 @@
 		"appliances": 
 		{
 			"HVAC": [
-				{
-					"label": "Energy Conumption",
-					"stream": "xyz", 
-					"filename": "xyz"
-				}, "AHU Air Flow", "Temperature", "Humidity"], 
-			"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-			"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-			"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+			], 
+			"Lighting": [
+				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+			], 
+			"Desktops": [
+				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+			], 
+			"Laptops": [
+				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+			]
 		},
 		"floors": 
 		{
@@ -20,19 +27,43 @@
 			{
 				"appliances": 
 				{
-					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					"HVAC": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Lighting": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Desktops": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Laptops": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					]
 				}, 
 				"zones":
 				{
 					"Z1": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					}
 				}	
 			},
@@ -40,47 +71,119 @@
 			{
 				"appliances": 
 				{
-					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					"HVAC": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Lighting": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Desktops": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Laptops": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					]
 				}, 
 				"zones":
 				{
 					"Z1": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z2": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z3": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z4": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z5": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					}
 				}
 			},
@@ -88,33 +191,81 @@
 			{
 				"appliances": 
 				{
-					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					"HVAC": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Lighting": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Desktops": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Laptops": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					]
 				}, 
 				"zones":
 				{
 					"Z1": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z2": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z3": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					}
 				}
 			},
@@ -122,26 +273,62 @@
 			{
 				"appliances": 
 				{
-					"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-					"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+					"HVAC": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Lighting": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Desktops": [
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					], 
+					"Laptops": [	
+						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+					]
 				}, 
 				"zones":
 				{
 					"Z1": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					},
 					"Z2": 
 					{
-						"HVAC": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Lighting": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Desktops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"], 
-						"Laptops": ["Energy Conumption", "AHU Air Flow", "Temperature", "Humidity"]
+						"HVAC": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Lighting": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Desktops": [
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						], 
+						"Laptops": [	
+							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+						]
 					}
 				}
 			}	

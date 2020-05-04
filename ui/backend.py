@@ -16,6 +16,25 @@ building_types_JSON = json.load(building_types_file)
 building_file = open('input/buildingJson.json')
 building_JSON = json.load(building_file)
 
+# default appliance list
+default_appliances = {
+	"HVAC": [
+		{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+		{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+	], 
+	"Lighting": [
+		{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+		{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+	], 
+	"Desktops": [
+		{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+		{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+	], 
+	"Laptops": [
+		{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+		{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
+	]
+}
 # decorator and function for the home page
 @app.route("/")
 def index():
@@ -36,6 +55,8 @@ def build():
 			return render_template('building.html', building_types=building_types_JSON)
 		elif request.json['query_type'] == 'map':
 			return jsonify(building_JSON)
+		elif request.json['query_type'] == 'default':
+			return jsonify(default_appliances)
 		else:
 			return render_template('error_modal.html')
 	else:
