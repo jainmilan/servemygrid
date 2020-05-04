@@ -12,6 +12,10 @@ ALLOWED_EXTENSIONS = {'json'}
 building_types_file = open('input/buildingTypes.json')
 building_types_JSON = json.load(building_types_file)
 
+# read the json file for building selection panel
+building_file = open('input/buildingJson.json')
+building_JSON = json.load(building_file)
+
 # decorator and function for the home page
 @app.route("/")
 def index():
@@ -23,13 +27,15 @@ def analyze():
 	return render_template('model.html')
 
 # decorator and function for the home page
-@app.route("/build", methods=['GET', 'POST'])
+@app.route("/query", methods=['GET', 'POST'])
 def build():
 	if request.method == "POST":
-		if request.json['build_type'] == 'scratch':
+		if request.json['query_type'] == 'scratch':
 			return jsonify(building_types_JSON);
-		elif request.json['build_type'] == 'upload':
+		elif request.json['query_type'] == 'upload':
 			return render_template('building.html', building_types=building_types_JSON)
+		elif request.json['query_type'] == 'map':
+			return jsonify(building_JSON)
 		else:
 			return render_template('error_modal.html')
 	else:
