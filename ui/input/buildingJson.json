@@ -6,19 +6,19 @@
 		"appliances": 
 		{
 			"HVAC": [
-				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 			], 
 			"Lighting": [
-				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 			], 
 			"Desktops": [
-				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 			], 
 			"Laptops": [
-				{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+				{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 				{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 			]
 		},
@@ -29,19 +29,19 @@
 				"appliances": 
 				{
 					"HVAC": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Lighting": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Desktops": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Laptops": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					]
 				}, 
@@ -50,19 +50,19 @@
 					"Z1": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					}
@@ -73,19 +73,19 @@
 				"appliances": 
 				{
 					"HVAC": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Lighting": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Desktops": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Laptops": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					]
 				}, 
@@ -94,95 +94,95 @@
 					"Z1": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z2": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z3": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z4": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z5": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					}
@@ -193,19 +193,19 @@
 				"appliances": 
 				{
 					"HVAC": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Lighting": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Desktops": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Laptops": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					]
 				}, 
@@ -214,57 +214,57 @@
 					"Z1": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z2": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z3": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					}
@@ -275,19 +275,19 @@
 				"appliances": 
 				{
 					"HVAC": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Lighting": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Desktops": [
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					], 
 					"Laptops": [	
-						{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+						{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 						{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 					]
 				}, 
@@ -296,38 +296,38 @@
 					"Z1": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					},
 					"Z2": 
 					{
 						"HVAC": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Lighting": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Desktops": [
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						], 
 						"Laptops": [	
-							{"label": "Power Conumption", "stream": "xyz", "filename": "xyz"}, 
+							{"label": "Power Consumption", "stream": "xyz", "filename": "xyz"}, 
 							{"label": "Temperature", "stream": "xyz", "filename": "xyz"}
 						]
 					}

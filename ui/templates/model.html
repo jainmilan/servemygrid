@@ -1,14 +1,35 @@
-{% extends "layout.html" %}
-{% block content %}
-    <div class="col-sm-5 panel analysis-panel">
+    <div class="col-sm-6 panel analysis-panel">
         <fieldset class="scheduler-border">
             <legend class="scheduler-border">Analyze yourData</legend>
-            <div class="back-button-div col-sm-12 hidden">
-                <button type="button" id="back-button-analysis" class="btn btn-default back-button"></button>
+            <div class="row ml-0 mr-2" id="div-sel-options">
+                <!--
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <select class="selectpicker form-control" title="Select Floors" id="select-floor" multiple></select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <select class="selectpicker form-control" title="Select Zones" id="select-zone" multiple></select>
+                    </div>
+                </div>
+                -->
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <select class="selectpicker form-control" title="Select Parameters" id="select-parameter" data-max-options="3" data-live-search="true" data-selected-text-format="count" multiple></select>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary form-control" id="btn-plot-data">Plot Data</button>
+                    </div>
+                </div>
             </div>
+            <div class="col-sm-12 px-0 mx-0" id="div-chart1"></div>
+            <div class="col-sm-12 px-0 mx-0" id="div-chart2"></div>
         </fieldset>
     </div>
-    <div class="col-sm-6 panel service-selection-panel">
+    <div class="col-sm-5 panel service-selection-panel">
         <fieldset class="scheduler-border">
             <legend class="scheduler-border">Service Selection</legend>
             <div class="col-sm-12 selection-panel service-selection-panel">
@@ -42,4 +63,3 @@
             </div>
         </fieldset>
     </div>
-{% endblock content %}

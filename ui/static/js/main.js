@@ -1,35 +1,11 @@
-var globalBuildingTypes, c_indx, globalBuildingMap, globalDefaultAppList;
+var globalBuildingTypes, 
+    globalBuildingMap, 
+    globalDefaultAppList, 
+    globalParametersList,
+    c_indx, fileObj;
 var sysVariables = { max_nzones: 0 };
 
-// get default parameters
-function get_default() {
-    jQuery.ajax({
-        type: "POST",
-        url: "/query",
-        data: JSON.stringify({"query_type": "default", "build_type": globalBuildingMap["building"]["type"]}),
-        dataType : "html",
-        contentType: "application/json",
-        success: function(response) {
-            globalDefaultAppList = JSON.parse(response);
-        },
-        error: function() {
-            alert( "error" );
-        }
-    });
-}
-
-jQuery('#btn-save-building').on('click', function(){
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob([JSON.stringify(globalBuildingMap, null, 2)], {
-        type: "json"
-    }));
-    a.setAttribute("download", "buildingMAP.json");
-    document.body.appendChild(a);
-    
-    a.click();
-    document.body.removeChild(a);
-});
-
+//------------------------------------ for index page ----------------------------------- //
 // show a list of data streams for a selected appliance
 function showStreams(streamInfo, streamList) {
 
@@ -516,6 +492,9 @@ function onReaderLoad(event){
     }
 }
 
+// file selection event on the upload modal screen
+document.getElementById('input-building-map').addEventListener('change', onFileSelect);
+
 // Click event for upload button on the modal screen
 jQuery('#btn-upload-selected-file').on('click', function() {
 
@@ -586,8 +565,170 @@ function back_button(b_val) {
     }
 }
 
+// get default parameters
+function get_default() {
+    jQuery.ajax({
+        type: "POST",
+        url: "/query",
+        data: JSON.stringify({"query_type": "default", "build_type": globalBuildingMap["building"]["type"]}),
+        dataType : "html",
+        contentType: "application/json",
+        success: function(response) {
+            globalDefaultAppList = JSON.parse(response);
+        },
+        error: function() {
+            alert( "error" );
+        }
+    });
+}
+
+// save the JSON file
+jQuery('#btn-save-building').on('click', function(){
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(globalBuildingMap, null, 2)], {
+        type: "json"
+    }));
+    a.setAttribute("download", "buildingMAP.json");
+    document.body.appendChild(a);
+    
+    a.click();
+    document.body.removeChild(a);
+});
+
+function plot_data_streams(parameters, data) {
+    console.log(data)
+    d3.select('#div-chart1').selectAll("*").remove();
+    for (var i = 0; i < data.length; i++) {
+        data[i]["datetime"] = new Date(new Date(data[i]["datetime"]).getTime() + 1000 * 60 * 60 * 24)
+        data[i][parameters[0]] = +data[i][parameters[0]]
+        data[i][parameters[1]] = +data[i][parameters[1]]
+        data[i][parameters[2]] = +data[i][parameters[2]]; 
+    }  
+    var chart1 = d3_timeseries()
+                    .margin.right($('#div-chart1').width()/10)
+                    .margin.top($('#div-chart1').width()/10)
+                    .xscale.label("Milan")
+                    .width($('#div-chart1').width())
+                    .height(Math.min($('#div-chart1').width()*2/3, 280));
+
+    parameters.forEach(function(d){
+        chart1.addSerie(data,{x:'datetime',y:d},{interpolate:'step-before'})
+    });
+    chart1('#div-chart1');
+
+    /*
+    var frenchLocale = d3.timeFormatLocale({
+      "dateTime": "%a %e %b %Y %X",
+      "date": "%d-%m-%Y",
+      "time": "%Hh%M",
+      "periods": ["am", "pm"],
+      "days": ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+      "shortDays": ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+      "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aôut", "Septembre", "Octobre", "Novembre", "Décembre"],
+      "shortMonths": ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Aôut", "Sep", "Oct", "Nov", "Déc"]
+    })
+
+    var frenchTimeFormat = function(date){
+      return (
+        d3.timeDay(date) < date ? frenchLocale.format("%Hh") :
+        d3.timeMonth(date) < date ? frenchLocale.format("%d/%m") :
+        d3.timeYear(date) < date ? frenchLocale.format("%B") :
+        d3.timeFormat("%Y")
+      )(date)
+    }
+    */
+    /*
+    var data = d3.csv("static/data/all_result.csv", function(d) {
+            return {
+                date: new Date(new Date(d.datetime).getTime() + 1000 * 60 * 60 * 24),
+                P1: +d.floor1_zon3_TRooAir_y,
+                P2: +d.floor1_zon3_TSetRooCoo_y,
+                P3: +d.floor1_zon3_TSetRooHea_y
+            };
+        }).then(function(data){
+            console.log(data);
+            var chart1 = d3_timeseries()
+              //.xscale.tickFormat(frenchTimeFormat)
+              .margin.right($('#div-chart1').width()/10)
+              .margin.top($('#div-chart1').width()/10)
+              .xscale.label("Milan")
+              .width($('#div-chart1').width())
+              .height(Math.min($('#div-chart1').width()*2/3, 280));
+
+            data_streams = ['P1', 'P2', 'P3']
+            data_streams.forEach(function(d){
+                chart1.addSerie(data,{x:'date',y:d},{interpolate:'step-before'})
+            });
+            chart1('#div-chart1');
+        })
+    */
+}
+
+function get_data_streams() {
+    var selected = [];
+    jQuery("#select-parameter option:selected").each(function(){
+        selected.push(this.text);
+    });
+    console.log(selected);
+
+    $.ajax({
+        url: "/query",
+        type : "POST",
+        data: JSON.stringify({"query_type": "get_data", "parameters":selected}),
+        dataType : "html",
+        contentType:"application/json",
+        success: function(response) {
+            var data = JSON.parse(response);
+            plot_data_streams(selected, data);
+        },
+        error: function(error) {
+            console.log("failure!!!");
+            console.log(error);
+        }
+    });
+}
+
+function init_modelpage(response) {
+    jQuery('#input').html(response.page);
+
+    globalParametersList = response.parameters;
+    var selector = d3.select('#select-parameter')
+    var opts = selector.selectAll(null)
+                .data(globalParametersList)
+                .enter()
+                .append('option')
+                .attr('value', function (d) {
+                    return d
+                })
+                .text(function (d) {
+                    return d
+                });
+
+    $('select').selectpicker();
+    jQuery("#btn-plot-data").on('click', function(){
+        get_data_streams();
+    });
+}
+
+jQuery('#btn-learn-model').on('click', function(){
+    $.ajax({
+        url: "/analyze",
+        type : "POST",
+        data: globalBuildingMap,
+        dataType : "html",
+        contentType:"application/json",
+        success: function(response) {
+            init_modelpage(JSON.parse(response));
+        },
+        error: function(error) {
+            console.log("failure!!!");
+            console.log(error);
+        }
+    });
+});
+
 // javascript when page loads
-jQuery(document).ready(function(){
+jQuery(function(){
 
     // get building tree
     jQuery.ajax({
@@ -603,8 +744,4 @@ jQuery(document).ready(function(){
             alert( "error" );
         }
     })
-
-    // file selection event on the upload modal screen
-    document.getElementById('input-building-map').addEventListener('change', onFileSelect);
-
 });
