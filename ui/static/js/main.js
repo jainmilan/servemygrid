@@ -365,7 +365,7 @@ function get_floormap(b_type, b_indx) {
     jQuery.ajax({
         type: "POST",
         url: "/query",
-        data: JSON.stringify({"query_type": "map", "build_type": b_type, "build_indx": b_indx}),
+        data: JSON.stringify({"query_type": "get_default_bmap", "build_type": b_type, "build_indx": b_indx}),
         dataType : "html",
         contentType: "application/json",
         success: function(response) {
@@ -505,7 +505,7 @@ jQuery('#btn-upload-selected-file').on('click', function() {
     if (validBuildingFile) {
 
         // add query-type for server processing
-        fileObj['query_type'] = 'upload';
+        fileObj['query_type'] = 'upload_bmap';
 
         // ajax query
         jQuery.ajax({
@@ -570,7 +570,7 @@ function get_default() {
     jQuery.ajax({
         type: "POST",
         url: "/query",
-        data: JSON.stringify({"query_type": "default", "build_type": globalBuildingMap["building"]["type"]}),
+        data: JSON.stringify({"query_type": "get_default_alist", "build_type": globalBuildingMap["building"]["type"]}),
         dataType : "html",
         contentType: "application/json",
         success: function(response) {
@@ -708,7 +708,7 @@ jQuery(function(){
     jQuery.ajax({
         type: "POST",
         url: "/query",
-        data: JSON.stringify({"query_type": "getTypes"}),
+        data: JSON.stringify({"query_type": "get_btree"}),
         dataType : "html",
         contentType: "application/json",
         success: function(response) {

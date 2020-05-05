@@ -1,6 +1,8 @@
 {
-	"mra":
+	"building":
 	{
+		"index": "0_2_4_1",
+    	"type": "building_commercial_hotel_smallHotel",
 		"appliances": 
 		{
 			"HVAC": [{"Energy Conumption": {"stream": "xyz", "filename": "xyz"}}, "AHU Air Flow", "Temperature", "Humidity"], 

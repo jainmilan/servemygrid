@@ -1,5 +1,7 @@
 {
   "building": {
+    "index": "0_2_4_1",
+    "type": "building_commercial_hotel_smallHotel",
     "appliances": {
       "Desktops": [
         {
@@ -817,8 +819,6 @@
           }
         }
       }
-    },
-    "index": "0_2_4_1",
-    "type": "building_commercial_hotel_smallHotel"
+    }
   }
 }

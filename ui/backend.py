@@ -106,19 +106,19 @@ def build():
 	# if post request
 	if request.method == "POST":
 		# to get building hierarchy tree
-		if request.json['query_type'] == 'getTypes':
+		if request.json['query_type'] == 'get_btree':
 			return jsonify(building_types_JSON);
 		# to upload the building map
-		elif request.json['query_type'] == 'upload':
+		elif request.json['query_type'] == 'upload_bmap':
 			del request.json['query_type']
 			return request.json
 		# to get default map of the selected building
-		elif request.json['query_type'] == 'map':
+		elif request.json['query_type'] == 'get_default_bmap':
 			building_JSON['building']['type'] = request.json['build_type']
 			building_JSON['building']['index'] = request.json['build_indx']
 			return jsonify(building_JSON)
 		# to get default list of appliances
-		elif request.json['query_type'] == 'default':
+		elif request.json['query_type'] == 'get_default_alist':
 			return jsonify(default_appliances)
 		# save the building, create job_id, and move to data analysis panel
 		elif request.json['query_type'] == 'train':
