@@ -3,6 +3,17 @@
     <div class="col-sm-3 panel" id="left-most-panel">
         <fieldset class="scheduler-border" id="fieldset-lmp">
             <legend class="scheduler-border" id="legend-lmp">How To Begin</legend>
+            <div class="row form-group" id="row-job-select">
+                <div class="col-sm-11">
+                    <div class="form-group">
+                        <select class="selectpicker form-control" title="Choose Job ID" id="select-job-id" data-live-search="true" data-selected-text-format="count">
+                        {% for key in job_keys %}
+                            <option>{{ key }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div class="row form-group" id="row-lmp">
                 <div class="col-sm-6">
                     <button type="button" class="btn btn-primary btn-sm btn-block" id="btn-make-building">Build From Scratch</button>
